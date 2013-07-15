@@ -10,9 +10,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
     url(r'^$', HomeView.as_view(), name='home'),
-    # url(r'^tingcraft/', include('tingcraft.foo.urls')),
 
-    url(r'^accounts/login/', 'users.views.login', name='login'),
+    url(r'^accounts/', include('users.urls')),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),

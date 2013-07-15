@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from .models import CraftCrew
+from .models import User
 
 
-class CraftCrewAdmin(admin.ModelAdmin):
+class UserAdmin(admin.ModelAdmin):
     list_display = ('pk', 'username', 'email', 'first_name', 'last_name',)
     search_fields = ['username', 'email']
     date_hierarchy = 'date_joined'
 
-admin.site.register(CraftCrew, CraftCrewAdmin)
+admin.site.register(User, UserAdmin)

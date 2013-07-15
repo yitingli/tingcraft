@@ -11,14 +11,14 @@ from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 
 
-class CraftCrewManager(BaseUserManager):
+class UserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
         now = timezone.now()
         if not email:
             raise ValueError('The given email must be set')
         if not username:
             raise ValueError('The given username must be set')
-        email = CraftCrewManager.normalize_email(email)
+        email = UserManager.normalize_email(email)
         user = self.model(email=email, username=username,
                           is_staff=False, is_active=True, is_superuser=False,
                           last_login=now, date_joined=now, **extra_fields)
@@ -35,7 +35,7 @@ class CraftCrewManager(BaseUserManager):
         return user
 
 
-class CraftCrew(PermissionsMixin, AbstractBaseUser):
+class User(PermissionsMixin, AbstractBaseUser):
 
     username = models.CharField(_('username'), max_length=30, unique=True,
         help_text=_('Required. 30 characters or fewer. Letters, numbers and '
@@ -47,6 +47,20 @@ class CraftCrew(PermissionsMixin, AbstractBaseUser):
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
     email = models.EmailField(_('email address'), blank=True)
+
+    """
+        Note: TextField is a longtext field in database, in MySQL
+        TINYTEXT    L + 1 bytes, where L < 28
+        TEXT        L + 2 bytes, where L < 216
+        MEDIUMTEXT  L + 3 bytes, where L < 224
+        LONGTEXT    L + 4 bytes, where L < 232
+        So a longtext will use one more byte than mediumtext to store the same text.
+        There is a bit more information in the Data Type Storage Requirements section of the manual
+        and some more in the The BLOB and TEXT Types section.
+        There's no practical difference between the four TEXT types.
+    """
+    description = models.TextField(_('description'), blank=True, default='')
+
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin '
                     'site.'))
@@ -55,9 +69,9 @@ class CraftCrew(PermissionsMixin, AbstractBaseUser):
                     'active. Unselect this instead of deleting accounts.'))
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
-    is_registration_complete = models.CharField(_('complete'), max_length=1, default='T')
+    registration_status = models.CharField(_('registration status'), max_length=1, default='T')
 
-    objects = CraftCrewManager()
+    objects = UserManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email', ]
@@ -81,3 +95,6 @@ class CraftCrew(PermissionsMixin, AbstractBaseUser):
         Sends an email to this User.
         """
         send_mail(subject, message, from_email, [self.email])
+
+    def set_registration_complete(self):
+        self.registration_status = 'T'

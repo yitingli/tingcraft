@@ -15,6 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',   # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        # To create one in MySQL: CREATE DATABASE tingcraft CHARACTER SET utf8 COLLATE utf8_unicode_ci;
         'NAME': 'tingcraft',                    # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'root',
@@ -138,6 +139,10 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
+    # 3rd party apps
+    'south',
+
+    # My apps
     'users',
 )
 
@@ -170,7 +175,7 @@ LOGGING = {
     }
 }
 
-AUTH_USER_MODEL = 'users.CraftCrew'
+AUTH_USER_MODEL = 'users.User'
 
 AUTHENTICATION_BACKENDS = (
     'users.backends.weibo.WeiboBackend',

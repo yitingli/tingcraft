@@ -1,4 +1,4 @@
-from users.models import CraftCrew
+from users.models import User
 
 
 class EmailOrUsernameModelBackend(object):
@@ -8,14 +8,14 @@ class EmailOrUsernameModelBackend(object):
         else:
             kwargs = {'username': username}
         try:
-            user = CraftCrew.objects.get(**kwargs)
+            user = User.objects.get(**kwargs)
             if user.check_password(password):
                 return user
-        except CraftCrew.DoesNotExist:
+        except User.DoesNotExist:
             return None
 
     def get_user(self, user_id):
         try:
-            return CraftCrew.objects.get(pk=user_id)
-        except CraftCrew.DoesNotExist:
+            return User.objects.get(pk=user_id)
+        except User.DoesNotExist:
             return None

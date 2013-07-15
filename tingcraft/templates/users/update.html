@@ -1,0 +1,42 @@
+{% extends 'menu_bar.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'user_update' %}">
+        {% csrf_token %}
+        {% if form.errors %}
+            <p>{{ form.errors }}</p>
+        {% endif %}
+        <table>
+            <tr>
+                <td>{{ form.email.label_tag }}</td>
+                <td>{{ form.email }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <a href="{% url 'user_password_change' %}">{% trans 'Change Password' %}</a>
+            </tr>
+            <tr>
+                <td>{{ form.first_name.label_tag }}</td>
+                <td>{{ form.first_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.last_name.label_tag }}</td>
+                <td>{{ form.last_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.description.label_tag }}</td>
+                <td>{{ form.description }}</td>
+            </tr>
+        </table>
+        <input type="submit" value="Save" />
+        {% if update_success %}
+            <p>{% trans 'Form saved' %}</p>
+        {% endif %}
+    </form>
+
+{% endblock %}

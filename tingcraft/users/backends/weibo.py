@@ -20,7 +20,7 @@ from django.utils import simplejson
 from social_auth.backends import OAuthBackend, BaseOAuth2
 from social_auth.utils import dsa_urlopen
 from social_auth.models import UserSocialAuth
-from users.models import CraftCrew
+from users.models import User
 
 
 WEIBO_SERVER = 'api.weibo.com'
@@ -49,13 +49,13 @@ class WeiboBackend(OAuthBackend):
         """
         try:
             social_user = UserSocialAuth.objects.get(uid=response['id'], provider='weibo')
-            user = CraftCrew.objects.get(id=social_user.user_id)
+            user = User.objects.get(id=social_user.user_id)
             return {'email': user.email}
         except:
             return {'username': response.get("name", ""),
                     'email': response.get("uid") + "." + str(time.time()) + "@weibo.com",
                     'first_name': response.get('screen_name', ''),
-                    'is_registration_complete': 'F'}
+                    'registration_status': 'F'}
 
 
 class WeiboAuth(BaseOAuth2):

@@ -1,9 +1,19 @@
-{% extends "menu_bar.html" %}
-
-{% block page_title %}
-    Home Page
-{% endblock %}
+{% extends 'menu_bar.html' %}
+{% load i18n %}
 
 {% block content %}
-    This is the home page
+    {% if user.is_authenticated %}
+        <div>
+            <div>
+                <p>{{ user.username }}</p>
+                <p>{{ user.get_full_name }}</p>
+                <p>{{ user.email }}</p>
+            </div>
+            <div>
+                <p>{{ user.description }}</p>
+            </div>
+        </div>
+    {% else %}
+        <p>{% trans 'Please Login' %}</p>
+    {% endif %}
 {% endblock %}
