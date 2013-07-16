@@ -1,16 +1,16 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from .models import User
+from .models import TingUser
 
 
-class UserLoginForm(forms.Form):
+class TingUserLoginForm(forms.Form):
 
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username', 'id': 'username'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'id': 'password'}))
 
 
-class UserCreateForm(forms.ModelForm):
+class TingUserCreateForm(forms.ModelForm):
 
     error_messages = {
         'duplicate_username': _("A user with that username already exists."),
@@ -23,22 +23,22 @@ class UserCreateForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'id': 'password'}))
 
     class Meta:
-        model = User
+        model = TingUser
         fields = ('email', 'username')
 
     def clean_email(self):
         email = self.cleaned_data["email"]
         try:
-            User.objects.get(email=email)
-        except User.DoesNotExist:
+            TingUser.objects.get(email=email)
+        except TingUser.DoesNotExist:
             return email
         raise forms.ValidationError(self.error_messages['duplicate_email'])
 
     def clean_username(self):
         username = self.cleaned_data["username"]
         try:
-            User.objects.get(username=username)
-        except User.DoesNotExist:
+            TingUser.objects.get(username=username)
+        except TingUser.DoesNotExist:
             return username
         raise forms.ValidationError(self.error_messages['duplicate_username'])
 
@@ -50,7 +50,7 @@ class UserCreateForm(forms.ModelForm):
         return password
 
     def save(self, commit=True):
-        user = super(UserCreateForm, self).save(commit=False)
+        user = super(TingUserCreateForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password"])
         user.set_registration_complete()
         if commit:
@@ -58,14 +58,14 @@ class UserCreateForm(forms.ModelForm):
         return user
 
 
-class UserUpdateForm(forms.ModelForm):
+class TingUserUpdateForm(forms.ModelForm):
 
     class Meta:
-        model = User
+        model = TingUser
         fields = ('email', 'username', 'first_name', 'last_name', 'description')
 
 
-class UserPasswordChangeForm(forms.ModelForm):
+class TingUserPasswordChangeForm(forms.ModelForm):
 
     error_messages = {
         'password_mismatch': _("The two password fields didn't match."),
@@ -82,7 +82,7 @@ class UserPasswordChangeForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs['initial']['user']
-        super(UserPasswordChangeForm, self).__init__(*args, **kwargs)
+        super(TingUserPasswordChangeForm, self).__init__(*args, **kwargs)
 
     def clean_old_password(self):
         """

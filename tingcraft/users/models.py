@@ -11,14 +11,14 @@ from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 
 
-class UserManager(BaseUserManager):
+class TingUserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
         now = timezone.now()
         if not email:
             raise ValueError('The given email must be set')
         if not username:
             raise ValueError('The given username must be set')
-        email = UserManager.normalize_email(email)
+        email = TingUserManager.normalize_email(email)
         user = self.model(email=email, username=username,
                           is_staff=False, is_active=True, is_superuser=False,
                           last_login=now, date_joined=now, **extra_fields)
@@ -35,7 +35,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(PermissionsMixin, AbstractBaseUser):
+class TingUser(PermissionsMixin, AbstractBaseUser):
 
     username = models.CharField(_('username'), max_length=30, unique=True,
         help_text=_('Required. 30 characters or fewer. Letters, numbers and '
@@ -71,7 +71,7 @@ class User(PermissionsMixin, AbstractBaseUser):
 
     registration_status = models.CharField(_('registration status'), max_length=1, default='T')
 
-    objects = UserManager()
+    objects = TingUserManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email', ]
@@ -92,7 +92,7 @@ class User(PermissionsMixin, AbstractBaseUser):
 
     def email_user(self, subject, message, from_email=None):
         """
-        Sends an email to this User.
+        Sends an email to this TingUser.
         """
         send_mail(subject, message, from_email, [self.email])
 

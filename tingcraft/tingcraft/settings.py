@@ -175,7 +175,7 @@ LOGGING = {
     }
 }
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.TingUser'
 
 AUTHENTICATION_BACKENDS = (
     'users.backends.weibo.WeiboBackend',

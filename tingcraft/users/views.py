@@ -5,13 +5,13 @@ from django.shortcuts import get_object_or_404, render, resolve_url
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView, TemplateView
 from django.views.generic.edit import FormMixin
 
-from .models import User
-from .forms import UserCreateForm, UserLoginForm, UserUpdateForm, UserPasswordChangeForm
+from .models import TingUser
+from .forms import TingUserCreateForm, TingUserLoginForm, TingUserUpdateForm, TingUserPasswordChangeForm
 
 
 def login(request):
     if request.POST:
-        form = UserLoginForm(request.POST)
+        form = TingUserLoginForm(request.POST)
         if form.is_valid():
             user = auth.authenticate(username=form.cleaned_data['username'],
                                      password=form.cleaned_data['password'])
@@ -20,14 +20,14 @@ def login(request):
                 return HttpResponseRedirect(reverse('home'))
         return render(request, 'users/login.html', {'form': form})
     else:
-        form = UserLoginForm()
+        form = TingUserLoginForm()
         return render(request, 'users/login.html', {'form': form})
 
 
-class UserCreateView(CreateView):
+class TingUserCreateView(CreateView):
 
-    model = User
-    form_class = UserCreateForm
+    model = TingUser
+    form_class = TingUserCreateForm
     template_name = 'users/create.html'
 
     #@Note: CreateView, UpdateView has built-in FormMixin
@@ -41,15 +41,15 @@ class UserCreateView(CreateView):
                                  password=form.cleaned_data['password'])
         if user is not None:
             auth.login(self.request, user)
-            return super(UserCreateView, self).form_valid(form)
+            return super(TingUserCreateView, self).form_valid(form)
         else:
             return render(self.request, 'users/create.html', {'form': form, 'error_msg': 'create error'})
 
 
-class UserUpdateView(UpdateView):
+class TingUserUpdateView(UpdateView):
 
-    model = User
-    form_class = UserUpdateForm
+    model = TingUser
+    form_class = TingUserUpdateForm
     template_name = 'users/update.html'
 
     #@Note: By default, it will get object from pk or slug
@@ -60,16 +60,16 @@ class UserUpdateView(UpdateView):
         return render(self.request, 'users/update.html', {'form': form, 'update_success': True})
 
 
-class UserPasswordChangeView(UpdateView):
+class TingUserPasswordChangeView(UpdateView):
 
-    model = User
-    form_class = UserPasswordChangeForm
+    model = TingUser
+    form_class = TingUserPasswordChangeForm
     template_name = 'users/password_change.html'
 
     #@Note: By default, it will get initial data from self.initial variable
     def get_initial(self):
         self.initial.update({'user': self.request.user})
-        return super(UserPasswordChangeView, self).get_initial()
+        return super(TingUserPasswordChangeView, self).get_initial()
 
     def get_object(self, queryset=None):
         return self.request.user

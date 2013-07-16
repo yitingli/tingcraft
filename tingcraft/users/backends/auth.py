@@ -1,4 +1,4 @@
-from users.models import User
+from users.models import TingUser
 
 
 class EmailOrUsernameModelBackend(object):
@@ -8,14 +8,14 @@ class EmailOrUsernameModelBackend(object):
         else:
             kwargs = {'username': username}
         try:
-            user = User.objects.get(**kwargs)
+            user = TingUser.objects.get(**kwargs)
             if user.check_password(password):
                 return user
-        except User.DoesNotExist:
+        except TingUser.DoesNotExist:
             return None
 
     def get_user(self, user_id):
         try:
-            return User.objects.get(pk=user_id)
-        except User.DoesNotExist:
+            return TingUser.objects.get(pk=user_id)
+        except TingUser.DoesNotExist:
             return None
