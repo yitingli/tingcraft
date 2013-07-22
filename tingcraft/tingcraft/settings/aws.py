@@ -8,7 +8,7 @@ DATABASES = {
         'NAME': 'mysite',                    # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'root',
-        'PASSWORD': 'aaa',
+        'PASSWORD': 'yitingvvv',
         'HOST': 'mysql.cvqkihah2kll.ap-southeast-1.rds.amazonaws.com',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
