@@ -1,7 +1,7 @@
 # Django settings for tingcraft project.
 from unipath import Path
 
-PROJECT_DIR = Path(__file__).ancestor(2)
+PROJECT_DIR = Path(__file__).ancestor(3)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -24,7 +24,7 @@ TIME_ZONE = 'America/New_York'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'zh-cn'
+LANGUAGE_CODE = 'en'
 
 SITE_ID = 1
 
@@ -124,12 +124,17 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 
     # 3rd party apps
+    'social_auth',
+    'sorl.thumbnail',
     'south',
 
     # My apps
+    'blogs',
+    'microblogs',
+    'mediabox',
     'users',
 )
 
