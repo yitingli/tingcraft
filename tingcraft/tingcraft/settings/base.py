@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     # My apps
     'blogs',
     'microblogs',
+    'noteboards',
     'mediabox',
     'users',
 )

@@ -12,6 +12,7 @@ class MicroBlog(TimeStampedModel):
 
 class MicroComment(TimeStampedModel):
 
+    owner = models.ForeignKey('users.TingUser')
     micro_blog = models.ForeignKey('microblogs.MicroBlog')
     content = models.CharField(max_length=180)
     parent_comment = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
