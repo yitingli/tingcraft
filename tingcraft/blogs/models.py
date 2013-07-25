@@ -6,6 +6,7 @@ class Blog(TimeStampedModel):
 
     owner = models.ForeignKey('users.TingUser')
     content = models.TextField(default='')
+    is_public = models.BooleanField(default=False)
 
 
 class Comment(TimeStampedModel):

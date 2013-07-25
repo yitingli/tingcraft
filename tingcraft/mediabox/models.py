@@ -13,10 +13,8 @@ class MediaBase(TimeStampedModel):
 
 class MediaImage(MediaBase):
 
-    width = models.IntegerField(default=0)
-    height = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='images/', width_field='width', height_field='height',
-                              null=True, blank=True)
+    extension = models.CharField(max_length=10, default='', blank=True)
+    image = models.ImageField(upload_to='images/origin/')
 
 
 class MediaVideo(MediaBase):

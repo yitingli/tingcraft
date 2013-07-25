@@ -90,6 +90,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    # project context processors
+    'core.context_processors.template_constants',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -127,6 +129,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     # 3rd party apps
+    'pipeline',
     'social_auth',
     'sorl.thumbnail',
     'south',
@@ -138,6 +141,8 @@ INSTALLED_APPS = (
     'mediabox',
     'users',
 )
+
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -176,3 +181,12 @@ AUTHENTICATION_BACKENDS = (
     'users.backends.auth.EmailOrUsernameModelBackend',
     #'django.contrib.auth.backends.ModelBackend'
 )
+
+PAGE_SIZE = {
+    'MICROBLOG': 30,
+    'MICROCOMMENT': 10,
+}
+
+IMAGE_SIZE = {
+    'MICROCOMMENT_IMAGE': '600',
+}

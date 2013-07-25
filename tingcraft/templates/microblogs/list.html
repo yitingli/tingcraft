@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block menu_bar %}
+    {% include 'menu_bar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'microblog:create' owner_username %}">{% trans 'Create MicroBlog' %}</a>
+    </div>
+    <ul>
+        {% for microblog in microblogs %}
+            {% include 'microblogs/microblog.html' %}
+            __________________________________________
+        {% endfor %}
+    </ul>
+{% endblock %}

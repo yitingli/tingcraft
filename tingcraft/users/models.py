@@ -2,6 +2,7 @@ import re
 
 from django.core import validators
 from django.core.mail import send_mail
+from django.conf import settings
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, PermissionsMixin
 )
@@ -10,8 +11,11 @@ from django.utils import timezone
 from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 
+from microblogs.models import MicroBlog
+
 
 class TingUserManager(BaseUserManager):
+
     def create_user(self, email, username, password=None, **extra_fields):
         now = timezone.now()
         if not email:
@@ -98,3 +102,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
 
     def set_registration_complete(self):
         self.registration_status = 'T'
+
+    def get_microblogs(self, start_index, size=settings.PAGE_SIZE['MICROBLOG']):
+        end_index = start_index + size
+        return MicroBlog.objects.filter(owner=self)[start_index:end_index]

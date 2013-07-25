@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block menu_bar %}
+    {% include 'menu_bar.html' %}
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'microblog:create' owner_username %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.content.label_tag }}</td>
+                <td>{{ form.content }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.image.label_tag }}</td>
+                <td>{{ form.image }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.video_code.label_tag }}</td>
+                <td>{{ form.video_code }}</td>
+            </tr>
+        </table>
+        <input type="submit" value="Create MicroBlog" />
+    </form>
+{% endblock %}
