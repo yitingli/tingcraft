@@ -4,6 +4,7 @@ Pillow==2.1.0
 South==0.8.1
 Unipath==1.0
 argparse==1.2.1
+django-braces==1.1.0
 django-categories==1.2.1
 django-model-utils==1.4.0
 django-mptt==0.5.5
