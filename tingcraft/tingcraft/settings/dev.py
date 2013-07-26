@@ -13,3 +13,5 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+
+THUMBNAIL_DEBUG = True

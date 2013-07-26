@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block menu_bar %}
+    {% include 'menu_bar.html' %}
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for noteboard in noteboards %}
+            <p><a href="{% url 'noteboard:board_notes' owner_username noteboard.slug %}">{{ noteboard.title }}</a></p>
+            __________________________________________
+        {% endfor %}
+    </ul>
+{% endblock %}

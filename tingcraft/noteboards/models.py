@@ -1,3 +1,6 @@
+from slugify import slugify
+
+from django.conf import settings
 from django.db import models
 from model_utils.models import TimeStampedModel
 
@@ -6,7 +9,21 @@ class NoteBoard(TimeStampedModel):
 
     title = models.CharField(max_length=30)
     owner = models.ForeignKey('users.TingUser')
-    rank = models.IntegerField(default=0)
+    rank = models.IntegerField(default=100)
+
+    # default max_length = 50
+    slug = models.SlugField()
+
+    class Meta:
+        unique_together = (('owner', 'slug'), )
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(NoteBoard, self).save(*args, **kwargs)
+
+    def get_notes(self, start_index, size=settings.PAGE_SIZE['NOTE']):
+        end_index = start_index + size
+        return Note.objects.filter(board=self)[start_index:end_index]
 
 
 class Note(TimeStampedModel):

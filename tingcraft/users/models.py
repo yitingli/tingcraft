@@ -12,6 +12,7 @@ from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 
 from microblogs.models import MicroBlog
+from noteboards.models import NoteBoard
 
 
 class TingUserManager(BaseUserManager):
@@ -106,3 +107,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
     def get_microblogs(self, start_index, size=settings.PAGE_SIZE['MICROBLOG']):
         end_index = start_index + size
         return MicroBlog.objects.filter(owner=self)[start_index:end_index]
+
+    def get_noteboards(self, start_index, size=settings.PAGE_SIZE['NOTEBOARD']):
+        end_index = start_index + size
+        return NoteBoard.objects.filter(owner=self)[start_index:end_index]

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block menu_bar %}
+    {% include 'menu_bar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        {{ noteboard.title }}
+    <ul>
+        {% for note in notes %}
+            {% include 'noteboards/note.html' %}
+            __________________________________________
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -22,3 +22,13 @@ class BasePaginationMixin(object):
 class MicroBlogPaginationMixin(BasePaginationMixin):
 
     PAGE_SIZE = settings.PAGE_SIZE['MICROBLOG']
+
+
+class NoteBoardPaginationMixin(BasePaginationMixin):
+
+    PAGE_SIZE = settings.PAGE_SIZE['NOTEBOARD']
+
+
+class NotePaginationMixin(BasePaginationMixin):
+
+    PAGE_SIZE = settings.PAGE_SIZE['NOTE']
