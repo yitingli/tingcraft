@@ -52,11 +52,16 @@ class TingUserUpdateView(UpdateView):
     form_class = TingUserUpdateForm
     template_name = 'users/update.html'
 
+    def get_initial(self):
+        self.initial['user'] = self.request.user
+        return super(TingUserUpdateView, self).get_initial()
+
     #@Note: By default, it will get object from pk or slug
     def get_object(self, queryset=None):
         return self.request.user
 
     def form_valid(self, form):
+        super(TingUserUpdateView, self).form_valid(form)
         return render(self.request, 'users/update.html', {'form': form, 'update_success': True})
 
 

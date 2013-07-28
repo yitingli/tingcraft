@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load users_tags %}
 
 {% block menu_bar %}
 {% endblock %}
 
 {% block content %}
 
-    <form method="post" action="{% url 'user_update' %}">
-        {% csrf_token %}
-        {% if form.errors %}
-            <p>{{ form.errors }}</p>
-        {% endif %}
+    {% if form.errors %}
+        <p>{{ form.errors }}</p>
+    {% endif %}
+    <img src="{% get_avatar user AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
+    <form method="post" action="{% url 'user_update' %}" enctype="multipart/form-data"> {% csrf_token %}
         <table>
+            <tr>
+                <td>{{ form.image.label_tag }}</td>
+                <td>{{ form.image }}</td>
+            </tr>
             <tr>
                 <td>{{ form.email.label_tag }}</td>
                 <td>{{ form.email }}</td>
@@ -22,6 +27,10 @@
             </tr>
             <tr>
                 <a href="{% url 'user_password_change' %}">{% trans 'Change Password' %}</a>
+            </tr>
+            <tr>
+                <td>{{ form.brief_description.label_tag }}</td>
+                <td>{{ form.brief_description }}</td>
             </tr>
             <tr>
                 <td>{{ form.first_name.label_tag }}</td>
@@ -36,7 +45,7 @@
                 <td>{{ form.description }}</td>
             </tr>
         </table>
-        <input type="submit" value="Save" />
+        <input type="submit" value="{% trans 'Save' %}" />
         {% if update_success %}
             <p>{% trans 'Form saved' %}</p>
         {% endif %}

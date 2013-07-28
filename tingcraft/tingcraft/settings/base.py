@@ -58,6 +58,8 @@ STATIC_ROOT = PROJECT_DIR.child('assets')
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
 
+DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
@@ -73,6 +75,36 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
+
+PIPELINE_JS = {
+    'libs': {
+        'source_filenames': (
+            'js/libs/jquery-1.10.2.js',
+            'js/libs/jquery.cookie.js',
+            'js/crfs.js',
+        ),
+        'output_filename': 'js/libs.js',
+    },
+    'site': {
+        'source_filenames': (
+        ),
+        'output_filename': 'js/site.js',
+    }
+}
+
+PIPELINE_CSS = {
+    'site': {
+        'source_filenames': (
+            'css/main.css',
+            'css/ui/jquery-ui-1.10.3.custom.css',
+        ),
+        'output_filename': 'css/site.css',
+    },
+}
+
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'um@+c4qsmja90f)mfb%q6dl++o@bpxje-8vbry88=!-+k)l(s@'
@@ -190,5 +222,10 @@ PAGE_SIZE = {
 }
 
 IMAGE_SIZE = {
+
+    'AVATAR_SMALL': '96',
+    'AVATAR_SMALL_CROPPED': '96x96',
+
     'MICROCOMMENT_IMAGE': '600',
+
 }

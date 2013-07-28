@@ -10,12 +10,27 @@
                 Yiting Li © 2013
             {% endblock page_title %}
         </title>
+
+        {% block js_in_header %}
+            {% compressed_js 'libs' %}
+        {% endblock %}
+
+        {% block stylesheets %}
+            {% compressed_css 'main_css' %}
+        {% endblock stylesheets %}
     </head>
 
     <body>
+
         {% block menu_bar %}
         {% endblock %}
+
         {% block content %}
         {% endblock %}
+
+        {% block js_in_body %}
+        {% endblock %}
+
     </body>
+
 </html>

@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
 {% load i18n %}
+{% load users_tags %}
 
 {% block menu_bar %}
     {% include 'menu_bar.html' %}
 {% endblock %}
 
 {% block content %}
+    <div>
+        <img src="{% get_avatar owner AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
+        <p>{{ owner.username }}</p>
+        <p>{{ owner.get_full_name }}</p>
+        <p>{{ owner.brief_description }}</p>
+    </div>
     <div>
         <a href="{% url 'microblog:create' owner_username %}">{% trans 'Create MicroBlog' %}</a>
     </div>

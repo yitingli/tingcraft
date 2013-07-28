@@ -13,7 +13,7 @@ class HomeView(RedirectView):
 
 class UserHomeView(OwnerContextMixin, TemplateView):
 
-    template_name = 'index.html'
+    template_name = 'users/user_home.html'
 
     def get_context_data(self, **kwargs):
         context = super(UserHomeView, self).get_context_data(**kwargs)

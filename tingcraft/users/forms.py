@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from .models import TingUser
+from mediabox.models import MediaImage
 
 
 class TingUserLoginForm(forms.Form):
@@ -60,9 +61,26 @@ class TingUserCreateForm(forms.ModelForm):
 
 class TingUserUpdateForm(forms.ModelForm):
 
+    image = forms.ImageField(required=False)
+
     class Meta:
         model = TingUser
-        fields = ('email', 'username', 'first_name', 'last_name', 'description')
+        fields = ('image', 'email', 'username', 'brief_description', 'first_name', 'last_name', 'description')
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs['initial']['user']
+        super(TingUserUpdateForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        user = super(TingUserUpdateForm, self).save(commit=False)
+        if commit:
+            image = self.cleaned_data['image']
+            if image:
+                avatar = MediaImage(image=image, owner=user)
+                avatar.save()
+                user.avatar = avatar
+            user.save()
+        return user
 
 
 class TingUserPasswordChangeForm(forms.ModelForm):

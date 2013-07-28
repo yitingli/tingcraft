@@ -74,6 +74,9 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
                     'active. Unselect this instead of deleting accounts.'))
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
+    avatar = models.ForeignKey('mediabox.MediaImage', null=True, blank=True)
+    brief_description = models.CharField(_('brief_description'), max_length=180, default='', blank=True)
+
     registration_status = models.CharField(_('registration status'), max_length=1, default='T')
 
     objects = TingUserManager()
@@ -103,6 +106,18 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
 
     def set_registration_complete(self):
         self.registration_status = 'T'
+
+    def get_avatar(self, geometry, crop='center'):
+        if self.avatar:
+            return self.avatar.get_image(geometry, crop)
+        else:
+            return None
+
+    def get_avatar_url(self, geometry, crop='center'):
+        if self.avatar:
+            return self.avatar.get_image(geometry, crop).url
+        else:
+            return settings.DEFAULT_AVATAR_LOCATION + geometry + '.jpg'
 
     def get_microblogs(self, start_index, size=settings.PAGE_SIZE['MICROBLOG']):
         end_index = start_index + size
