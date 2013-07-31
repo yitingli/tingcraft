@@ -19,7 +19,7 @@ class NoteBoardListView(NoteBoardPaginationMixin, OwnerContextMixin, ListView):
     def get_queryset(self):
         username = self.kwargs['username']
         self.owner = get_object_or_404(TingUser, username=username)
-        queryset = self.owner.get_noteboards(start_index=self.start_index)
+        queryset = self.owner.get_noteboards(max_id=self.max_id)
         return queryset
 
 
@@ -34,7 +34,7 @@ class NoteListView(NotePaginationMixin, OwnerContextMixin, ListView):
         slug = self.kwargs['slug']
         self.owner = get_object_or_404(TingUser, username=username)
         self.board = get_object_or_404(NoteBoard, owner=self.owner, slug=slug)
-        queryset = self.board.get_notes(start_index=self.start_index)
+        queryset = self.board.get_notes(max_id=self.max_id)
         return queryset
 
     def get_context_data(self, **kwargs):

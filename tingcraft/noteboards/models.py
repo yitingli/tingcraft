@@ -21,9 +21,11 @@ class NoteBoard(TimeStampedModel):
         self.slug = slugify(self.title)
         super(NoteBoard, self).save(*args, **kwargs)
 
-    def get_notes(self, start_index, size=settings.PAGE_SIZE['NOTE']):
-        end_index = start_index + size
-        return Note.objects.filter(board=self)[start_index:end_index]
+    def get_notes(self, max_id, size=settings.PAGE_SIZE['NOTE']):
+        if max_id is None:
+            return Note.objects.filter(board=self)[:size]
+        else:
+            return Note.objects.filter(pk__lt=max_id, board=self)[:size]
 
 
 class Note(TimeStampedModel):

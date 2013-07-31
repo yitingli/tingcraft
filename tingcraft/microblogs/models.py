@@ -14,9 +14,11 @@ class MicroBlog(TimeStampedModel):
     def get_absolute_url(self):
         return reverse('microblog:list', kwargs={'username': self.owner.username})
 
-    def get_microcomments(self, start_index, size=settings.PAGE_SIZE['MICROCOMMENT']):
-        end_index = start_index + size
-        return MicroComment.objects.filter(micro_blog=self)[start_index:end_index]
+    def get_microcomments(self, max_id, size=settings.PAGE_SIZE['MICROCOMMENT']):
+        if max_id is None:
+            return MicroComment.objects.filter(micro_blog=self)[:size]
+        else:
+            return MicroComment.objects.filter(pk__lt=max_id , micro_blog=self)[:size]
 
 
 class MicroComment(TimeStampedModel):

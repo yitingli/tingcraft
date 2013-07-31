@@ -20,7 +20,7 @@ class MicroBlogListView(MicroBlogPaginationMixin, OwnerContextMixin, ListView):
     def get_queryset(self):
         username = self.kwargs['username']
         self.owner = get_object_or_404(TingUser, username=username)
-        queryset = self.owner.get_microblogs(start_index=self.start_index)
+        queryset = self.owner.get_microblogs(max_id=self.max_id)
         return queryset
 
     def get_context_data(self, **kwargs):
