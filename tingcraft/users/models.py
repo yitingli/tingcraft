@@ -120,13 +120,13 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
             return settings.DEFAULT_AVATAR_LOCATION + geometry + '.jpg'
 
     def get_microblogs(self, max_id, size=settings.PAGE_SIZE['MICROBLOG']):
-        if max_id is None:
+        if max_id == 0:
             return MicroBlog.objects.filter(owner=self)[:size]
         else:
             return MicroBlog.objects.filter(pk__lt=max_id, owner=self)[:size]
 
     def get_noteboards(self, max_id, size=settings.PAGE_SIZE['NOTEBOARD']):
-        if max_id is None:
+        if max_id == 0:
             return NoteBoard.objects.filter(owner=self)[:size]
         else:
             return NoteBoard.objects.filter(pk__lt=max_id, owner=self)[:size]

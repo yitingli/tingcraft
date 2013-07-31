@@ -15,7 +15,7 @@ class MicroBlog(TimeStampedModel):
         return reverse('microblog:list', kwargs={'username': self.owner.username})
 
     def get_microcomments(self, max_id, size=settings.PAGE_SIZE['MICROCOMMENT']):
-        if max_id is None:
+        if max_id == 0:
             return MicroComment.objects.filter(micro_blog=self)[:size]
         else:
             return MicroComment.objects.filter(pk__lt=max_id , micro_blog=self)[:size]

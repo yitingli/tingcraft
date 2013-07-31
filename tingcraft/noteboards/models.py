@@ -22,7 +22,7 @@ class NoteBoard(TimeStampedModel):
         super(NoteBoard, self).save(*args, **kwargs)
 
     def get_notes(self, max_id, size=settings.PAGE_SIZE['NOTE']):
-        if max_id is None:
+        if max_id == 0:
             return Note.objects.filter(board=self)[:size]
         else:
             return Note.objects.filter(pk__lt=max_id, board=self)[:size]

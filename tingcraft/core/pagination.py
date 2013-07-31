@@ -7,12 +7,12 @@ class BasePaginationMixin(object):
         abstract = True
 
     def dispatch(self, request, *args, **kwargs):
-        self.max_id = int(request.GET.get('max_id', None))
+        self.max_id = int(request.GET.get('max_id', '0'))
         return super(BasePaginationMixin, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(BasePaginationMixin, self).get_context_data(**kwargs)
-        if self.max_id == None:
+        if self.max_id == 0:
             context['first_page'] = True
         return context
 
