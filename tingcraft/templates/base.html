@@ -16,21 +16,30 @@
         {% endblock %}
 
         {% block stylesheets %}
-            {% compressed_css 'main_css' %}
+            {% compressed_css 'global' %}
         {% endblock stylesheets %}
     </head>
 
     <body>
+        <div id="menu-container">
+            {% block menu_bar %}
+            {% endblock %}
+        </div>
+        <div id="content-container">
+            {% block profile_summary %}
+            {% endblock %}
+        <div id="content">
+            {% block content %}
+                <div id="content-main">
+                    {% block content_main %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
 
-        {% block menu_bar %}
-        {% endblock %}
-
-        {% block content %}
-        {% endblock %}
-
-        {% block js_in_body %}
-        {% endblock %}
-
+            {% block js_in_body %}
+            {% endblock %}
+        <div>
     </body>
 
 </html>

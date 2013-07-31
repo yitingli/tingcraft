@@ -1,0 +1,12 @@
+{% load users_tags %}
+
+<div>
+    <div class="avatar-outer">
+        <div class="avatar-image">
+            <img src="{% get_avatar owner AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
+        </div>
+    </div>
+    <p>{{ owner.username }}</p>
+    <p>{{ owner.get_full_name }}</p>
+    <p>{{ owner.brief_description }}</p>
+</div>

@@ -96,12 +96,12 @@ PIPELINE_JS = {
 }
 
 PIPELINE_CSS = {
-    'site': {
+    'global': {
         'source_filenames': (
             'css/main.css',
             'css/ui/jquery-ui-1.10.3.custom.css',
         ),
-        'output_filename': 'css/site.css',
+        'output_filename': 'css/global.css',
     },
 }
 
@@ -226,6 +226,6 @@ IMAGE_SIZE = {
     'AVATAR_SMALL': '96',
     'AVATAR_SMALL_CROPPED': '96x96',
 
-    'MICROCOMMENT_IMAGE': '600',
+    'MICROCOMMENT_IMAGE': '500',
 
 }
