@@ -25,21 +25,16 @@
             {% block menu_bar %}
             {% endblock %}
         </div>
-        <div id="content-container">
-            {% block profile_summary %}
-            {% endblock %}
-        <div id="content">
-            {% block content %}
-                <div id="content-main">
-                    {% block content_main %}
-                    {% endblock %}
-                </div>
-            {% endblock %}
-        </div>
 
-            {% block js_in_body %}
-            {% endblock %}
-        <div>
+        {% block content_container %}
+            <div id="content-container" class="white">
+                {% block content %}
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block js_in_body %}
+        {% endblock %}
     </body>
 
 </html>

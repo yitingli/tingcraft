@@ -7,19 +7,15 @@
 {% endblock %}
 
 {% block content %}
-    {% if user.is_authenticated %}
+    <div>
         <div>
-            <div>
-                <img src="{% get_avatar owner AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
-                <p>{{ owner.username }}</p>
-                <p>{{ owner.get_full_name }}</p>
-                <p>{{ owner.email }}</p>
-            </div>
-            <div>
-                <p>{{ owner.description }}</p>
-            </div>
+            <img src="{% get_avatar owner AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
+            <p>{{ owner.username }}</p>
+            <p>{{ owner.get_full_name }}</p>
+            <p>{{ owner.email }}</p>
         </div>
-    {% else %}
-        <p>{% trans 'Please Login' %}</p>
-    {% endif %}
+        <div>
+            <p>{{ owner.description }}</p>
+        </div>
+    </div>
 {% endblock %}
