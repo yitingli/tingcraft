@@ -7,6 +7,7 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, PermissionsMixin
 )
 from django.db import models
+from django.db.models import Q
 from django.utils import timezone
 from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
@@ -119,14 +120,24 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
         else:
             return settings.DEFAULT_AVATAR_LOCATION + geometry + '.jpg'
 
-    def get_microblogs(self, max_id, size=settings.PAGE_SIZE['MICROBLOG']):
-        if max_id == 0:
-            return MicroBlog.objects.filter(owner=self)[:size]
-        else:
-            return MicroBlog.objects.filter(pk__lt=max_id, owner=self)[:size]
+    def get_microblogs(self, max_id=0, size=settings.PAGE_SIZE['MICROBLOG']):
+        criteria = Q(owner=self)
+        if max_id:
+            criteria = criteria & Q(pk__lt=max_id)
+        return MicroBlog.objects.filter(criteria).order_by('-created')[:size]
 
-    def get_noteboards(self, max_id, size=settings.PAGE_SIZE['NOTEBOARD']):
-        if max_id == 0:
-            return NoteBoard.objects.filter(owner=self)[:size]
-        else:
-            return NoteBoard.objects.filter(pk__lt=max_id, owner=self)[:size]
+    def get_blogs(self, max_id=0, size=settings.PAGE_SIZE['BLOG'], only_public=True):
+        criteria = Q(owner=self)
+        if only_public:
+            criteria = criteria & Q(is_public=True)
+        if max_id:
+            criteria = criteria & Q(pk__lt=max_id) 
+        return MicroBlog.objects.filter(criteria)[:size]
+
+    def get_noteboards(self, max_id, size=settings.PAGE_SIZE['NOTEBOARD'], only_public=True):
+        criteria = Q(owner=self)
+        if only_public:
+            criteria = criteria & Q(is_public=True)
+        if max_id:
+            criteria = criteria & Q(pk__lt=max_id)
+        return NoteBoard.objects.filter(criteria)[:size]

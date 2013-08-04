@@ -19,6 +19,7 @@ urlpatterns = patterns('',
 
     url(r'^(?P<username>[-_\w]+)/$', UserHomeView.as_view(), name='user_home'),
     url(r'^(?P<username>[-_\w]+)/microblog/', include('microblogs.urls', namespace='microblog')),
+    url(r'^(?P<username>[-_\w]+)/blog/', include('blogs.urls', namespace='blog')),
     url(r'^(?P<username>[-_\w]+)/noteboard/', include('noteboards.urls', namespace='noteboard')),
 
 )

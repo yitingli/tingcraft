@@ -74,9 +74,12 @@ p {font-family:Arial,Helvetica,sans-serif;}
     overflow: hidden;
 }
 
-.time {
-    font-size: 12px;
+.gray {
     color: #999;
+}
+
+.small {
+    font-size: 12px;
 }
 
 .right {

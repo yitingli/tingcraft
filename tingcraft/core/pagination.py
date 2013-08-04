@@ -30,3 +30,8 @@ class NoteBoardPaginationMixin(BasePaginationMixin):
 class NotePaginationMixin(BasePaginationMixin):
 
     PAGE_SIZE = settings.PAGE_SIZE['NOTE']
+
+
+class BlogPaginationMixin(BasePaginationMixin):
+
+    PAGE_SIZE = settings.PAGE_SIZE['BLOG']

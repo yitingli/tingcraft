@@ -1,0 +1,15 @@
+{% load thumbnail %}
+{% load i18n %}
+
+<div class="microblog-container">
+    <div class="content"><p>{{ microblog.content|linebreaks }}</p></div>
+    {% if microblog.image_item %}
+        <div >
+            {% thumbnail microblog.image_item.image.url MICROCOMMENT_IMAGE as im %}
+                <img src="{{ im.url }}" class="microblog-image" width="{{ im.width }}" height="{{ im.height }}"/>
+            {% endthumbnail %}
+        </div>
+    {% endif %}
+    <p class="time right">{{ microblog.created }}</p>
+    <span class="clear-right"></span>
+</div>

@@ -10,6 +10,7 @@ class NoteBoard(TimeStampedModel):
     title = models.CharField(max_length=30)
     owner = models.ForeignKey('users.TingUser')
     rank = models.IntegerField(default=100)
+    is_public = models.BooleanField(default=False)
 
     # default max_length = 50
     slug = models.SlugField()

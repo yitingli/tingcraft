@@ -3,13 +3,16 @@
 
 <div class="microblog-container">
     <div class="content"><p>{{ microblog.content|linebreaks }}</p></div>
-    {% if microblog.image_item %}
+    {% if microblog.media_frame and microblog.media_frame.content_type == 'I' %}
         <div >
-            {% thumbnail microblog.image_item.image.url MICROCOMMENT_IMAGE as im %}
+            {% thumbnail microblog.media_frame.image_item.image.url MICROCOMMENT_IMAGE as im %}
                 <img src="{{ im.url }}" class="microblog-image" width="{{ im.width }}" height="{{ im.height }}"/>
             {% endthumbnail %}
+            <p class="gray small right"> {% trans 'collected to' %} {{ microblog.media_frame.album }}</p>
+            <span class="clear-right"></span>
         </div>
     {% endif %}
-    <p class="time right">{{ microblog.created }}</p>
+    <p class="gray small right">{{ microblog.created }}</p>
+
     <span class="clear-right"></span>
 </div>

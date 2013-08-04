@@ -8,8 +8,7 @@ class MicroBlog(TimeStampedModel):
 
     owner = models.ForeignKey('users.TingUser')
     content = models.CharField(max_length=180, default='', blank=True)
-    image_item = models.ForeignKey('mediabox.MediaImage', null=True, blank=True)
-    video_item = models.ForeignKey('mediabox.MediaVideo', null=True, blank=True)
+    media_frame = models.ForeignKey('mediaframes.MediaFrame', null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('microblog:list', kwargs={'username': self.owner.username})

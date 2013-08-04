@@ -2,6 +2,8 @@ from django.db import models
 from model_utils.models import TimeStampedModel
 from sorl.thumbnail import get_thumbnail
 
+from .helpers import upload_filename
+
 
 class MediaBase(TimeStampedModel):
 
@@ -15,7 +17,7 @@ class MediaBase(TimeStampedModel):
 class MediaImage(MediaBase):
 
     extension = models.CharField(max_length=10, default='', blank=True)
-    image = models.ImageField(upload_to='images/origin/')
+    image = models.ImageField(upload_to=upload_filename)
 
     def get_image(self, geometry, crop='center'):
         if crop:
