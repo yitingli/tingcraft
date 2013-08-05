@@ -3,13 +3,21 @@ from base import *
 DEBUG = False
 ALLOWED_HOSTS = ['.liyiting.net']
 
-S3_BUCKET_NAME = 's3-singapore.liyiting.net'
-S3_STATIC_PATH = 'assets'
-S3_URL = 'http://%s.s3.amazonaws.com/' % S3_BUCKET_NAME
-STATIC_URL = 'http://%s/%s/' % (S3_URL, S3_STATIC_PATH)
+AWS_ACCESS_KEY_ID = 'AKIAIS4JPQBNHQAHBWIA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_S3_SECURE_URLS = False
+AWS_S3_CUSTOM_DOMAIN = 's3-singapore.liyiting.net'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = 's3-singapore.liyiting.net'
+
+AWS_STATIC_S3_CUSTOM_DOMAIN = 's3-singapore.liyiting.net'
+AWS_STATIC_STORAGE_BUCKET_NAME = 'assets.liyiting.net'
+AWS_STATIC_PATH = 'assets'
+
+STATIC_URL = 'http://%s/%s/' % (AWS_STATIC_PATH)
 DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
 
-STATICFILES_STORAGE = 'core.storage.PipelineStorage'
+STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'
 
 DATABASES = {
     'default': {
