@@ -10,11 +10,11 @@ AWS_S3_CUSTOM_DOMAIN = 's3-singapore.liyiting.net'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 's3-singapore.liyiting.net'
 
-AWS_STATIC_S3_CUSTOM_DOMAIN = 's3-singapore.liyiting.net'
+AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets.liyiting.net'
 AWS_STATIC_STORAGE_BUCKET_NAME = 'assets.liyiting.net'
 AWS_STATIC_PATH = 'assets'
 
-STATIC_URL = 'http://%s/%s/' % (AWS_STATIC_PATH)
+STATIC_URL = 'http://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
 DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
 
 STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'

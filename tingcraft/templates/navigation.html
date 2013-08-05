@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<div class="navbar">
+    <ul class="nav nav-pills">
+        <li><a href="{% url 'user_home' owner_username %}">{% trans 'Home' %}</a></li>
+        <li><a href="{% url 'microblog:list' owner_username %}">{% trans 'MicroBlog' %}</a></li>
+        <li><a href="{% url 'noteboard:list' owner_username %}">{% trans 'NoteBoard' %}</a></li>
+        <li><a href="{% url 'album:list' owner_username %}">{% trans 'Album' %}</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'user_update' %}">{% trans 'Settings' %}</a></li>
+            <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
+            <li><a href="{% url 'register' %}">{% trans 'Register(Open my personal website)' %}</a></li>
+        {% endif %}
+    </ul>
+</div>

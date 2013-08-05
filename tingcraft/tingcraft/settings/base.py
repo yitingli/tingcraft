@@ -85,6 +85,7 @@ PIPELINE_JS = {
         'source_filenames': (
             'js/libs/jquery-1.10.2.js',
             'js/libs/jquery.cookie.js',
+            'js/libs/bootstrap.js',
             'js/crfs.js',
         ),
         'output_filename': 'js/libs.js',
@@ -97,10 +98,16 @@ PIPELINE_JS = {
 }
 
 PIPELINE_CSS = {
+    'libs': {
+        'source_filenames': (
+            'css/bootstrap.css',
+            'css/ui/jquery-ui-1.10.3.custom.css',
+        ),
+        'output_filename': 'css/libs.css',
+    },
     'global': {
         'source_filenames': (
             'css/main.css',
-            'css/ui/jquery-ui-1.10.3.custom.css',
         ),
         'output_filename': 'css/global.css',
     },

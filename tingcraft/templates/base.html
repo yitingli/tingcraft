@@ -16,13 +16,14 @@
         {% endblock %}
 
         {% block stylesheets %}
+            {% compressed_css 'libs' %}
             {% compressed_css 'global' %}
         {% endblock stylesheets %}
     </head>
 
     <body>
         <div id="menu-container">
-            {% block menu_bar %}
+            {% block navigation %}
             {% endblock %}
         </div>
 
