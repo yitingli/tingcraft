@@ -76,7 +76,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
                     'active. Unselect this instead of deleting accounts.'))
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
-    avatar = models.ForeignKey('mediabox.MediaImage', null=True, blank=True)
+    avatar = models.ForeignKey('mediabox.MediaImage', null=True, blank=True, on_delete=models.SET_NULL)
     brief_description = models.CharField(_('brief_description'), max_length=180, default='', blank=True)
 
     registration_status = models.CharField(_('registration status'), max_length=1, default='T')
