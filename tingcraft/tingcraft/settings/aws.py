@@ -20,7 +20,7 @@ DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
 STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'
 
 IMAGE_PATH_PREFIX = 'media/images/origin'
-MEDIA_URL = 'http://%s/media/' % (AWS_S3_CUSTOM_DOMAIN, IMAGE_PATH_PREFIX)
+MEDIA_URL = 'http://%s/' % (AWS_S3_CUSTOM_DOMAIN)
 
 DATABASES = {
     'default': {
