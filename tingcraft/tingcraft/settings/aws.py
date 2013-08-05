@@ -1,5 +1,15 @@
 from base import *
 
+DEBUG = False
+ALLOWED_HOSTS = ['.liyiting.net']
+
+S3_BUCKET_NAME = 's3-singapore.liyiting.net'
+S3_STATIC_PATH = 'assets'
+S3_URL = 'http://%s.s3.amazonaws.com/' % S3_BUCKET_NAME
+STATIC_URL = 'http://%s/%s/' % (S3_URL, S3_STATIC_PATH)
+DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
+
+STATICFILES_STORAGE = 'core.storage.PipelineStorage'
 
 DATABASES = {
     'default': {

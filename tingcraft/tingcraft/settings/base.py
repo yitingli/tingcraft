@@ -223,6 +223,8 @@ PAGE_SIZE = {
     'NOTEBOARD': 10,
     'NOTE': 10,
     'BLOG': 10,
+    'ALBUM': 15,
+    'MEDIAFRAME': 30,
 }
 
 IMAGE_SIZE = {
@@ -231,5 +233,7 @@ IMAGE_SIZE = {
     'AVATAR_SMALL_CROPPED': '96x96',
 
     'MICROCOMMENT_IMAGE': '500',
+
+    'PHOTO_MEDIUM': '200',
 
 }

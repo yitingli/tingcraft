@@ -12,7 +12,7 @@ class NoteBoard(TimeStampedModel):
     rank = models.IntegerField(default=100)
     is_public = models.BooleanField(default=False)
 
-    # default max_length = 50
+    # default max_length = 50. Implies setting Field.db_index to True.
     slug = models.SlugField()
 
     class Meta:

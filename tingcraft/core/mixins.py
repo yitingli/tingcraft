@@ -1,3 +1,6 @@
+from django.http import HttpResponseForbidden
+
+
 class OwnerContextMixin(object):
 
     def dispatch(self, request, *args, **kwargs):
@@ -8,3 +11,11 @@ class OwnerContextMixin(object):
         context = super(OwnerContextMixin, self).get_context_data(**kwargs)
         context['owner_username'] = self.owner_username
         return context
+
+
+class OwnerRequiredMixin(object):
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.username.lower() != kwargs['username'].lower():
+            return HttpResponseForbidden()
+        return super(OwnerRequiredMixin, self).dispatch(request, *args, **kwargs)

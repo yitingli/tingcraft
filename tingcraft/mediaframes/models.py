@@ -1,8 +1,12 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from model_utils.models import TimeStampedModel
 
 
 class MediaFrame(TimeStampedModel):
+    """
+        Photo/Video Frame
+    """
 
     TYPE_IMAGE = 'I'
     TYPE_VIDEO = 'V'
@@ -17,6 +21,9 @@ class MediaFrame(TimeStampedModel):
     content_type = models.CharField(max_length=1)
     image_item = models.ForeignKey('mediabox.MediaImage', null=True, blank=True)
     video_item = models.ForeignKey('mediabox.MediaVideo', null=True, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('album:list', kwargs={'username': self.owner.username})
 
 
 class FrameComment(TimeStampedModel):

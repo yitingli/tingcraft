@@ -1,4 +1,4 @@
-{% extends 'microblogs/base.html' %}
+{% extends 'base.html' %}
 {% load thumbnail %}
 {% load i18n %}
 {% load users_tags %}
@@ -12,15 +12,15 @@
     <hr>
 {% endblock %}
 
-{% block content_main %}
+{% block content %}
     {% if user.is_authenticated and user.username == owner_username %}
         <div>
-            <a href="{% url 'microblog:create' owner_username %}">{% trans 'Create MicroBlog' %}</a>
+            <a href="{% url 'album:create' owner_username %}">{% trans 'Create Album' %}</a>
         </div>
     {% endif %}
     <div>
-        {% for microblog in microblogs %}
-            {% include 'microblogs/microblog.html' %}
+        {% for album in albums %}
+            {% include 'albums/album.html' %}
         {% endfor %}
     </div>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'microblogs/base.html' %}
+{% extends 'base.html' %}
 {% load thumbnail %}
 {% load i18n %}
 {% load users_tags %}
@@ -8,19 +8,17 @@
 {% endblock %}
 
 {% block profile_summary %}
-    {% include 'users/profile_summary.html' %}
-    <hr>
 {% endblock %}
 
-{% block content_main %}
+{% block content %}
     {% if user.is_authenticated and user.username == owner_username %}
         <div>
-            <a href="{% url 'microblog:create' owner_username %}">{% trans 'Create MicroBlog' %}</a>
+            <a href="{% url 'mediaframe:create' owner_username %}">{% trans 'Create Photo/Video' %}</a>
         </div>
     {% endif %}
     <div>
-        {% for microblog in microblogs %}
-            {% include 'microblogs/microblog.html' %}
+        {% for mediaframe in mediaframes %}
+            {% include 'mediaframes/mediaframe.html' %}
         {% endfor %}
     </div>
 {% endblock %}

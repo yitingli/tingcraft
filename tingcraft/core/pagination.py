@@ -35,3 +35,13 @@ class NotePaginationMixin(BasePaginationMixin):
 class BlogPaginationMixin(BasePaginationMixin):
 
     PAGE_SIZE = settings.PAGE_SIZE['BLOG']
+
+
+class AlbumPaginationMixin(BasePaginationMixin):
+
+    PAGE_SIZE = settings.PAGE_SIZE['ALBUM']
+
+
+class MediaFramePaginationMixin(BasePaginationMixin):
+
+    PAGE_SIZE = settings.PAGE_SIZE['MEDIAFRAME']

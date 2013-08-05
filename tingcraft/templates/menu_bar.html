@@ -3,6 +3,7 @@
 <a href="{% url 'user_home' owner_username %}">{% trans 'Home' %}</a>
 <a href="{% url 'microblog:list' owner_username %}">{% trans 'MicroBlog' %}</a>
 <a href="{% url 'noteboard:list' owner_username %}">{% trans 'NoteBoard' %}</a>
+<a href="{% url 'album:list' owner_username %}">{% trans 'Album' %}</a>
 {% if user.is_authenticated %}
     <a href="{% url 'user_update' %}">{% trans 'Settings' %}</a>
     <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>

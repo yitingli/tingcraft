@@ -1,0 +1,7 @@
+{% load thumbnail %}
+{% load i18n %}
+
+<div class="album-container">
+    <a href="{% url 'album:mediaframes' owner_username album.slug %}"><p>{{ album.name }}</p></a>
+    <span class="clear-right"></span>
+</div>
