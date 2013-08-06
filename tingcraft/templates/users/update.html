@@ -10,7 +10,7 @@
     {% if form.errors %}
         <p>{{ form.errors }}</p>
     {% endif %}
-    <img src="{% get_avatar user AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
+    <img src="{% get_avatar user AVATAR_SMALL_CROPPED %}" width="{{ AVATAR_SMALL }}" height="{{ AVATAR_SMALL }}" >
     <form method="post" action="{% url 'user_update' %}" enctype="multipart/form-data"> {% csrf_token %}
         <table>
             <tr>
