@@ -1,14 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'user_page_base.html' %}
 {% load thumbnail %}
 {% load i18n %}
 {% load users_tags %}
-
-{% block navigation %}
-    {% include 'navigation.html' %}
-{% endblock %}
-
-{% block profile_summary %}
-{% endblock %}
 
 {% block content %}
     {% if user.is_authenticated and user.username == owner_username %}

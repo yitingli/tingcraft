@@ -21,22 +21,13 @@
         {% endblock stylesheets %}
     </head>
 
-    <body>
-        <div id="menu-container">
-            {% block navigation %}
-            {% endblock %}
-        </div>
-
-        {% block content_container %}
-            <div id="content-container" class="white">
-                {% block profile_summary %}
-                {% endblock %}
-
+    <body {# background="{{ STATIC_URL }}img/background.png" #}>
+        <div id='body-container'>
+            {% block body_container %}
                 {% block content %}
                 {% endblock %}
-            </div>
-        {% endblock %}
-
+            {% endblock %}
+        </div>
         {% block js_in_body %}
         {% endblock %}
     </body>

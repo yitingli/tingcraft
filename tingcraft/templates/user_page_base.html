@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block body_container %}
+        <div id="header-container">
+            <div id="profile-summary">
+                {% block profile_summary %}
+                    {% include 'users/profile_summary.html' %}
+                {% endblock %}
+            </div>
+
+            <div class="navbar {# navbar-inverse #}">
+                {% block navigation %}
+                    {% include 'navigation.html' %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div id="content-container" class="white">
+            {% block content %}
+                <div id="content-main">
+                    {% block content_main %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
