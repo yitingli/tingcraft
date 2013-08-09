@@ -24,8 +24,10 @@
     <body {# background="{{ STATIC_URL }}img/background.png" #}>
         <div id='body-container'>
             {% block body_container %}
-                {% block content %}
-                {% endblock %}
+                <div id="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             {% endblock %}
         </div>
         {% block js_in_body %}

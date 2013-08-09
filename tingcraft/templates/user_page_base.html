@@ -3,13 +3,13 @@
 
 {% block body_container %}
         <div id="header-container">
-            <div id="profile-summary">
+            <div id="header-profile">
                 {% block profile_summary %}
                     {% include 'users/profile_summary.html' %}
                 {% endblock %}
             </div>
 
-            <div class="navbar {# navbar-inverse #}">
+            <div class="navbar navbar-inverse ">
                 {% block navigation %}
                     {% include 'navigation.html' %}
                 {% endblock %}

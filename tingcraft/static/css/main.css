@@ -7,8 +7,11 @@ body {
 
 #body-container {
     max-width: 900px;
+    min-height: 600px;
     background-color: #FFF;
+    /*background-color: #F0F0F0;*/
 
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
 
@@ -24,11 +27,16 @@ body {
     overflow: hidden;
 }
 
-#content-container {
+#content {
+    margin: 80px;
+}
 
+#content-container {
+    /*background-color: #F0F0F0;*/
     margin-top: 20px;
     margin-left: 50px;
-    margin-right: 50px; 
+    margin-right: 50px;
+    margin-bottom: 30px;
 
 }
 
@@ -36,19 +44,46 @@ body {
     width: 560px;
 }
 
+#header-profile {
+    margin-top: 20px;
+    margin-left: 120px;
+    margin-right: 100px;
+    height: 119px;
+}
+
+#header-name {
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+#header-name a {
+    color: #191919;
+    font-family: serif;
+    font-style: oblique;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header-name a:hover {
+    color: #00B8E6;
+}
+
 .avatar-outer {
+
     width: 96px;
     height: 96px;
-    -webkit-box-shadow: 0px 0px 10px #4d4d4d;
-    -moz-box-shadow: 0px 0px 10px #4d4d4d;
-    box-shadow: 0px 0px 10px #4d4d4d;
+
+    -webkit-box-shadow: 0px 0px 10px #4a4a4a;
+    -moz-box-shadow: 0px 0px 10px #4a4a4a;
+    box-shadow: 0px 0px 10px #4a4a4a;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -khtml-border-radius: 8px;
     border-radius: 8px;
     border:solid white 2px;
     overflow: hidden;
-    padding: 1px;
+    /*padding: 1px;*/
 }
 
 .avatar-image {
@@ -114,9 +149,9 @@ body {
     margin-top:20px;
     margin-bottom:20px;
 
-    -webkit-box-shadow: 0px 2px 5px #4d4d4d;
-    -moz-box-shadow: 0px 2px 5px #4d4d4d;
-    box-shadow: 0px 2px 5px #4d4d4d;
+    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
+    -moz-box-shadow: 0px 2px 6px #4a4a4a;
+    box-shadow: 0px 2px 6px #4a4a4a;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -khtml-border-radius: 6px;
