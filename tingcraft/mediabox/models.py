@@ -17,7 +17,10 @@ class MediaBase(TimeStampedModel):
 class MediaImage(MediaBase):
 
     extension = models.CharField(max_length=10, default='', blank=True)
-    image = models.ImageField(upload_to=upload_filename)
+    width = models.IntegerField(default=0)
+    height = models.IntegerField(default=0)
+    image = models.ImageField(upload_to=upload_filename, width_field='width',
+                              height_field='height')
 
     def get_image(self, geometry, crop='center'):
         if crop:
