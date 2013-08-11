@@ -1,11 +1,15 @@
 {% load thumbnail %}
 {% load i18n %}
 
-<div class="album-container">
-    <div >
-        {% thumbnail mediaframe.image_item.image.url PHOTO_MEDIUM as im %}
+<div class="frame-container">
+    <a href="{{ mediaframe.image_item.image.url }}">
+        {% thumbnail mediaframe.image_item.image.url FRAME_LIST_CROPPED crop='center' as im %}
             <img src="{{ im.url }}" class="mediaframe-image" width="{{ im.width }}" height="{{ im.height }}"/>
         {% endthumbnail %}
-        <p class="gray small"> {{ mediaframe.created }}</p>
-    </div>
+        {% if mediaframe.description %}
+            <p> {{ mediaframe.description }} </p>
+        {% endif %}
+        <span class="gray small right"> {{ mediaframe.created }}</span>
+        <span class="clear-right"></span>
+    </a>
 </div>

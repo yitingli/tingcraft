@@ -25,6 +25,9 @@ class MediaFrame(TimeStampedModel):
     def get_absolute_url(self):
         return reverse('album:list', kwargs={'username': self.owner.username})
 
+    def get_album_thumb_image_url(self):
+        return self.image_item
+
 
 class FrameComment(TimeStampedModel):
 

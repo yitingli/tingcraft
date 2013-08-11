@@ -36,3 +36,10 @@ class Album(TimeStampedModel):
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
         return MediaFrame.objects.filter(criteria)[:size]
+
+    def get_album_thumb_frames(self):
+        mediaframes = self.get_media_frames(max_id=None, size=4)
+        frame_list = list(mediaframes)
+        while len(frame_list) < 4:
+            frame_list.append(None)
+        return frame_list

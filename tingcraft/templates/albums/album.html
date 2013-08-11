@@ -1,7 +1,28 @@
 {% load thumbnail %}
 {% load i18n %}
 
-<div class="album-container">
-    <a href="{% url 'album:mediaframes' owner_username album.slug %}"><p>{{ album.name }}</p></a>
-    <span class="clear-right"></span>
+<div class="album-container white">
+    <a href="{% url 'album:mediaframes' owner_username album.slug %}">
+        <p class="text-center">{{ album.name }}</p>
+        <div>
+            {% if album.cover %}
+                {% thumbnail album.cover.image_item.image.url ALBUM_COVER_CROPPED crop='center' as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"/>
+                {% endthumbnail %}
+            {% else %}
+                <img src="" width="{{ ALBUM_COVER_WIDTH }}" height="{{ ALBUM_COVER_HEIGHT }}"/>
+            {% endif %}
+        </div>
+        <div class="album-thumb-div">
+            {% for thumb in album.get_album_thumb_frames %}
+                {% if thumb %}
+                    {% thumbnail thumb.image_item.image.url FRAME_THUMB_CROPPED crop='center' as im %}
+                        <span class="thumb-span"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"/></span>
+                    {% endthumbnail %}
+                {% else %}
+                    <span class="thumb-span"><img src="" width="{{ FRAME_THUMB_WIDTH }}" height="{{ FRAME_THUMB_WIDTH }}"/></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </a>
 </div>

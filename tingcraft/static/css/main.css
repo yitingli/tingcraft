@@ -8,8 +8,8 @@ body {
 #body-container {
     max-width: 900px;
     min-height: 600px;
-    background-color: #FFF;
-    /*background-color: #F0F0F0;*/
+    /*background-color: #FFF;*/
+    background-color: #F0F0F0;
 
     margin-top: 15px;
     margin-left: auto;
@@ -32,7 +32,7 @@ body {
 }
 
 #content-container {
-    /*background-color: #F0F0F0;*/
+    background-color: #F0F0F0;
     margin-top: 20px;
     margin-left: 50px;
     margin-right: 50px;
@@ -135,6 +135,75 @@ body {
 .clear-both {
     clear: both;
 }
+
+.text-center {
+    text-align: center
+}
+
+
+/* ---------- Album related style ----------- */
+.album-container {
+    width: 226px;
+
+    display: inline-block;
+
+    margin-top: 20px;
+    margin-right: 10px;
+
+    padding: 7px;
+
+    -webkit-box-shadow: 0px 1px 3px #4a4a4a;
+    -moz-box-shadow: 0px 1px 3px #4a4a4a;
+    box-shadow: 0px 1px 3px #4a4a4a;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius:5px;
+}
+
+.album-container a{
+    text-decoration: none;
+}
+
+.album-container p{
+    color: #4a4a4a;
+    font-weight: bold;
+    margin: 0 0 2px;
+}
+
+.album-container img{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius:3px;
+}
+
+.album-thumb-div {
+    margin-top: 4px;
+}
+
+
+/* ---------- Frame related style ----------- */
+.frame-container {
+    width: 310px;
+
+    margin-top: 10px;
+    margin-right: 10px;
+
+    padding: 5px;
+
+    display: inline-block;
+
+    -webkit-box-shadow: 0px 1px 3px #4a4a4a;
+    -moz-box-shadow: 0px 1px 3px #4a4a4a;
+    box-shadow: 0px 1px 3px #4a4a4a;
+}
+
+.frame-container p{
+    margin: 0 0 0px;
+}
+
 
 /* ---------- Microblog related style ----------- */
 .microblog-container {

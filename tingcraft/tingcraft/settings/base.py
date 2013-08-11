@@ -46,7 +46,7 @@ MEDIA_ROOT = PROJECT_DIR.child('media')
 IMAGE_PATH_PREFIX = 'images/origin'
 THUMBNAIL_PATH_PREFIX = 'images/thumbnails'
 THUMBNAIL_BACKEND = 'mediabox.backends.CustomThumbnailBackend'
-THUMBNAIL_UPSCALE = False
+# THUMBNAIL_UPSCALE = False
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -245,6 +245,12 @@ IMAGE_SIZE = {
 
     'MICROCOMMENT_IMAGE': '500',
 
-    'PHOTO_MEDIUM': '200',
+    'FRAME_LIST_CROPPED': '300x200',
+
+    'ALBUM_COVER_CROPPED': '212x150',
+    'ALBUM_COVER_WIDTH': '212',
+    'ALBUM_COVER_HEIGHT': '150',
+    'FRAME_THUMB_CROPPED': '50x50',
+    'FRAME_THUMB_WIDTH': '50'
 
 }
