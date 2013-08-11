@@ -62,4 +62,5 @@ class AlbumMediaFramesView(MediaFramePaginationMixin, OwnerContextMixin, ListVie
     def get_context_data(self, **kwargs):
         context = super(AlbumMediaFramesView, self).get_context_data(**kwargs)
         context['owner'] = self.owner
+        context['album'] = self.album
         return context
