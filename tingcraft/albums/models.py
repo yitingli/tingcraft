@@ -38,7 +38,7 @@ class Album(TimeStampedModel):
         return MediaFrame.objects.filter(criteria)[:size]
 
     def get_album_thumb_frames(self):
-        mediaframes = MediaFrame.objects.filter(album=self).order_by('-created')[:4]
+        mediaframes = MediaFrame.objects.filter(album=self).order_by('?')[:4]
         frame_list = list(mediaframes)
         while len(frame_list) < 4:
             frame_list.append(None)
