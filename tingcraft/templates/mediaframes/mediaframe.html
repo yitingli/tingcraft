@@ -7,9 +7,9 @@
             <img src="{{ im.url }}" class="mediaframe-image" width="{{ im.width }}" height="{{ im.height }}"/>
         {% endthumbnail %}
         {% if mediaframe.description %}
-            <p> {{ mediaframe.description }} </p>
+            <p class="gray right"> {{ mediaframe.description }} </p>
         {% endif %}
-        <span class="gray small right"> {{ mediaframe.created }}</span>
+        <span class="gray small clear-right right"> {{ mediaframe.created }}</span>
         <span class="clear-right"></span>
     </a>
 </div>

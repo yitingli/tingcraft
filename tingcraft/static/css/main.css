@@ -10,7 +10,8 @@ p {
 }
 
 #body-container {
-    max-width: 900px;
+
+    max-width: 1000px;
     min-height: 600px;
     /*background-color: #FFF;*/
     background-color: #F0F0F0;
@@ -62,10 +63,9 @@ p {
 
 #header-name a {
     color: #191919;
-    font-family: serif;
     font-style: oblique;
     font-size: 50px;
-    font-weight: bold;
+    /*font-weight: bold;*/
     text-decoration: none;
 }
 
@@ -166,6 +166,11 @@ p {
     border-radius:5px;
 }
 
+.album-container:hover {
+    opacity:0.85;
+    filter:alpha(opacity=85);
+}
+
 .album-container a{
     text-decoration: none;
 }
@@ -190,15 +195,23 @@ p {
 
 /* ---------- Frame related style ----------- */
 .frame-container {
-    width: 310px;
+    width: 288px;
 
     margin-top: 15px;
-    margin-right: 15px;
+    margin-right: 9px;
 
-    padding: 5px;
+    padding: 0px;
 
     display: inline-block;
 
+}
+
+.frame-container:hover {
+    opacity:0.85;
+    filter:alpha(opacity=85);
+}
+
+.frame-container img {
     -webkit-box-shadow: 0px 1px 3px #4a4a4a;
     -moz-box-shadow: 0px 1px 3px #4a4a4a;
     box-shadow: 0px 1px 3px #4a4a4a;
