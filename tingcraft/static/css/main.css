@@ -204,6 +204,15 @@ p {
     box-shadow: 0px 1px 3px #4a4a4a;
 }
 
+.frame-container a{
+    text-decoration: none;
+}
+
+.frame-container p{
+    color: #4a4a4a;
+    margin: 0 0 0px;
+}
+
 
 /* ---------- Microblog related style ----------- */
 .microblog-container {
