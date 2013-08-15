@@ -30,16 +30,16 @@ AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets.liyiting.net'
 AWS_STATIC_STORAGE_BUCKET_NAME = 'assets.liyiting.net'
 AWS_STATIC_PATH = 'assets'
 
-STATIC_URL = 'http://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
+STATIC_URL = 'https://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
 DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
 
 STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'
 
-MEDIA_URL = 'http://%s/' % (AWS_S3_CUSTOM_DOMAIN)
+MEDIA_URL = 'https://%s/' % (AWS_S3_CUSTOM_DOMAIN)
 IMAGE_PATH_PREFIX = 'media/images/origin'
 
 if DEBUG:
-    INTERNAL_IPS = ('127.0.0.1', '66.65.162.33')
+    INTERNAL_IPS = ('127.0.0.1', '66.65.162.33', '112.3.52.35')
 
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
