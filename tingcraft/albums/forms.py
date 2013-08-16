@@ -5,7 +5,7 @@ from .models import Album
 
 class AlbumCreateForm(forms.ModelForm):
 
-    description = forms.CharField(max_length=300, widget=forms.Textarea)
+    description = forms.CharField(max_length=255, widget=forms.Textarea)
 
     class Meta:
         model = Album

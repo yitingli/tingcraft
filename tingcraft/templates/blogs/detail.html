@@ -1,0 +1,12 @@
+{% extends 'user_page_base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block content_main %}
+    <div class="blog-detail-container">
+        <p>{{ blog.title }}</p>
+        <div class="content"><p>{{ blog.content|safe }}</p></div>
+        <p class="time right">{{ blog.created }}</p>
+        <span class="clear-right"></span>
+    </div>
+{% endblock %}

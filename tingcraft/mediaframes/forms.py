@@ -7,9 +7,9 @@ from mediabox.models import MediaImage, MediaVideo
 
 class MediaFrameCreateForm(forms.ModelForm):
 
-    description = forms.CharField(max_length=300, widget=forms.Textarea)
+    description = forms.CharField(max_length=255, widget=forms.Textarea)
     image = forms.ImageField(required=False)
-    video_code = forms.CharField(max_length=300, required=False)
+    video_code = forms.CharField(max_length=255, required=False)
     album = forms.ModelChoiceField(queryset=None, empty_label=None)
 
     class Meta:

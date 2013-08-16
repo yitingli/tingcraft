@@ -36,4 +36,4 @@ class MediaImage(MediaBase):
 
 class MediaVideo(MediaBase):
 
-    video_code = models.CharField(max_length=300, default='', blank=True)
+    video_code = models.CharField(max_length=255, default='', blank=True)

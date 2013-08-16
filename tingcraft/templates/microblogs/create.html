@@ -2,10 +2,6 @@
 {% load thumbnail %}
 {% load i18n %}
 
-{% block navigation %}
-    {% include 'navigation.html' %}
-{% endblock %}
-
 {% block content %}
     <form method="post" action="{% url 'microblog:create' owner_username %}" enctype="multipart/form-data">
         {% csrf_token %}

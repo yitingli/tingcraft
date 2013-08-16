@@ -1,12 +1,17 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from model_utils.models import TimeStampedModel
 
 
 class Blog(TimeStampedModel):
 
     owner = models.ForeignKey('users.TingUser')
+    title = models.CharField(max_length=255, default='', db_index=True)
     content = models.TextField(default='')
     is_public = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse('blog:list', kwargs={'username': self.owner.username})
 
 
 class Comment(TimeStampedModel):

@@ -1,23 +1,16 @@
-{% extends 'microblogs/base.html' %}
+{% extends 'user_page_base.html' %}
 {% load thumbnail %}
 {% load i18n %}
 {% load users_tags %}
 
-{% block navigation %}
-    {% include 'navigation.html' %}
-{% endblock %}
-
-{% block profile_summary %}
-    {% include 'users/profile_summary.html' %}
-{% endblock %}
-
 {% block content_main %}
     <div>
-        <a href="{% url 'microblog:create' owner_username %}">{% trans 'Create MicroBlog' %}</a>
+        <a href="{% url 'blog:create' owner_username %}">{% trans 'Create Blog' %}</a>
     </div>
-    <div>
-        {% for microblog in microblogs %}
-            {% include 'microblogs/microblog.html' %}
+    <div id="blog-container">
+        {% for blog in blogs %}
+            {% include 'blogs/blog.html' %}
+            <hr>
         {% endfor %}
     </div>
 {% endblock %}

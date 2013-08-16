@@ -5,6 +5,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from .views import HomeView, UserHomeView
+from blogs.views import BlogDetailView
 
 admin.autodiscover()
 

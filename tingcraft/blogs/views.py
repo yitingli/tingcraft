@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView, TemplateView
 
 from .models import Blog
+from .forms import BlogCreateForm
 from users.models import TingUser
 from core.pagination import BlogPaginationMixin
 from core.mixins import OwnerContextMixin
@@ -31,5 +32,24 @@ class BlogListView(BlogPaginationMixin, OwnerContextMixin, ListView):
         return context
 
 
-class BlogCreateView(OwnerContextMixin, CreateView):
-    pass
+class BlogCreateView(LoginRequiredMixin, OwnerContextMixin, CreateView):
+
+    model = Blog
+    form_class = BlogCreateForm
+    template_name = 'blogs/create.html'
+
+    def get_initial(self):
+        self.initial['owner'] = self.request.user
+        return super(BlogCreateView, self).get_initial()
+
+    def get_login_url(self):
+        return reverse('login')
+
+    def get_sucessful_url(self):
+        return reverse('blog:list', kwargs={'username': self.request.user})
+
+
+class BlogDetailView(OwnerContextMixin, DetailView):
+
+    model = Blog
+    template_name = 'blogs/detail.html'

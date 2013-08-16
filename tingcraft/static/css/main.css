@@ -46,7 +46,7 @@ p {
 }
 
 #content-main {
-    width: 560px;
+    width: 600px;
 }
 
 #header-profile {
@@ -167,8 +167,8 @@ p {
 }
 
 .album-container:hover {
-    opacity:0.85;
-    filter:alpha(opacity=85);
+    opacity:0.9;
+    filter:alpha(opacity=90);
 }
 
 .album-container a{
@@ -207,8 +207,8 @@ p {
 }
 
 .frame-container:hover {
-    opacity:0.85;
-    filter:alpha(opacity=85);
+    opacity:0.9;
+    filter:alpha(opacity=90);
 }
 
 .frame-container img {
@@ -259,4 +259,13 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
+}
+
+/* ---------- Blog related style ----------- */
+.blog-title {
+    color: #4a4a4a;
+    font-style: oblique;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
 }

@@ -13,6 +13,7 @@ from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 
 from albums.models import Album
+from blogs.models import Blog
 from microblogs.models import MicroBlog
 from noteboards.models import NoteBoard
 
@@ -133,7 +134,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
             criteria = criteria & Q(is_public=True)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id) 
-        return MicroBlog.objects.filter(criteria)[:size]
+        return Blog.objects.filter(criteria)[:size]
 
     def get_noteboards(self, max_id, size=settings.PAGE_SIZE['NOTEBOARD'], only_public=True):
         criteria = Q(owner=self)
