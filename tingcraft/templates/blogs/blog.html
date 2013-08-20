@@ -5,7 +5,7 @@
     <a href="{% url 'blog:detail' owner_username blog.pk %}" >
         <p class="blog-title">{{ blog.title }}</p>
     </a>
-    <div class="content"><p>{{ blog.content|safe|truncatewords_html:30 }}</p></div>
-    <p class="small gray right">{{ blog.created }}</p>
+    <span class="small gray right">{{ blog.created }}</span>
     <span class="clear-right"></span>
+    <div class="content"><p>{{ blog.content|safe|truncatewords_html:30 }}</p></div>
 </div>

@@ -22,13 +22,13 @@ DATABASES = {
 AWS_ACCESS_KEY_ID = 'AKIAIS4JPQBNHQAHBWIA'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_S3_SECURE_URLS = False
-AWS_S3_CUSTOM_DOMAIN = 's3-singapore.liyiting.net'
+AWS_S3_CUSTOM_DOMAIN = 's3-ca.liyiting.net'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = 's3-singapore.liyiting.net'
+AWS_STORAGE_BUCKET_NAME = 's3-ca.liyiting.net'
 
-AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets.liyiting.net'
-AWS_STATIC_STORAGE_BUCKET_NAME = 'assets.liyiting.net'
-AWS_STATIC_PATH = 'assets'
+AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
+AWS_STATIC_STORAGE_BUCKET_NAME = 'assets-ca.liyiting.net'
+AWS_STATIC_PATH = 'assets-ca'
 
 STATIC_URL = 'https://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
 DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'

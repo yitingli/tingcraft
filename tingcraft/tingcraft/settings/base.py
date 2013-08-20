@@ -44,7 +44,7 @@ USE_TZ = True
 MEDIA_ROOT = PROJECT_DIR.child('media')
 
 IMAGE_PATH_PREFIX = 'images/origin'
-THUMBNAIL_PATH_PREFIX = 'images/thumbnails'
+THUMBNAIL_PATH_PREFIX = 'media/thumbnails'
 THUMBNAIL_BACKEND = 'mediabox.backends.CustomThumbnailBackend'
 # THUMBNAIL_UPSCALE = False
 
@@ -181,10 +181,11 @@ INSTALLED_APPS = (
     # My apps
     'albums',
     'blogs',
+    'experience',
     'microblogs',
-    'noteboards',
     'mediabox',
     'mediaframes',
+    'noteboards',
     'users',
 )
 

@@ -5,8 +5,8 @@
 {% block content_main %}
     <div class="blog-detail-container">
         <p>{{ blog.title }}</p>
-        <div class="content"><p>{{ blog.content|safe }}</p></div>
-        <p class="time right">{{ blog.created }}</p>
+        <span class="time right">{{ blog.created }}</span>
         <span class="clear-right"></span>
+        <div class="content"><p>{{ blog.content|safe }}</p></div>
     </div>
 {% endblock %}
