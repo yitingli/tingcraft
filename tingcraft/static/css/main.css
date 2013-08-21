@@ -13,8 +13,8 @@ p {
 
     max-width: 1000px;
     min-height: 600px;
-    /*background-color: #FFF;*/
-    background-color: #F0F0F0;
+    background-color: #FFF;
+    /*background-color: #F0F0F0;*/
 
     margin-top: 15px;
     margin-left: auto;
@@ -37,7 +37,7 @@ p {
 }
 
 #content-container {
-    background-color: #F0F0F0;
+    /*background-color: #F0F0F0;*/
     margin-top: 20px;
     margin-left: 50px;
     margin-right: 50px;
