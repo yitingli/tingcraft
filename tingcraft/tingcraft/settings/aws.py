@@ -28,7 +28,7 @@ AWS_STORAGE_BUCKET_NAME = 's3-ca.liyiting.net'
 
 AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
 AWS_STATIC_STORAGE_BUCKET_NAME = 'assets-ca.liyiting.net'
-AWS_STATIC_PATH = 'assets-ca'
+AWS_STATIC_PATH = 'assets'
 
 STATIC_URL = 'https://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
 DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
@@ -38,8 +38,18 @@ STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'
 MEDIA_URL = 'https://%s/' % (AWS_S3_CUSTOM_DOMAIN)
 IMAGE_PATH_PREFIX = 'media/images/origin'
 
+"""
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': ' memcached.oki6tj.cfg.usw1.cache.amazonaws.com:11211',
+        'MAX_ENTRIES': 10000,
+    }
+}
+"""
+
 if DEBUG:
-    INTERNAL_IPS = ('127.0.0.1', '66.65.162.33', '112.3.52.35')
+    INTERNAL_IPS = ('127.0.0.1', '66.65.162.33', '112.3.55.105')
 
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
