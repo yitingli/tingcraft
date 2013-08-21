@@ -24,3 +24,9 @@ class MediaFrameCreateView(LoginRequiredMixin, OwnerContextMixin, OwnerRequiredM
 
     def get_sucessful_url(self):
         return reverse('album:list', kwargs={'username': self.request.user})
+
+
+class MediaFrameDetailView(OwnerContextMixin, DetailView):
+
+    model = MediaFrame
+    template_name = 'mediaframes/detail.html'
