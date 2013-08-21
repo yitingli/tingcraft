@@ -26,8 +26,8 @@ AWS_S3_CUSTOM_DOMAIN = 's3-ca.liyiting.net'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 's3-ca.liyiting.net'
 
-AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
-AWS_STATIC_STORAGE_BUCKET_NAME = 'assets-ca.liyiting.net'
+AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets.liyiting.net'
+AWS_STATIC_STORAGE_BUCKET_NAME = 'assets.liyiting.net'
 AWS_STATIC_PATH = 'assets'
 
 STATIC_URL = 'https://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
