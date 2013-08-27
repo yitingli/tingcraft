@@ -8,7 +8,7 @@ THUMBNAIL_DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',   # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        # To create one in MySQL: CREATE DATABASE tingcraft CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+        # To create one in MySQL: CREATE DATABASE sitedb CHARACTER SET utf8 COLLATE utf8_unicode_ci;
         'NAME': 'sitedb',                    # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'root',
@@ -26,8 +26,8 @@ AWS_S3_CUSTOM_DOMAIN = 's3-ca.liyiting.net'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 's3-ca.liyiting.net'
 
-AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets.liyiting.net'
-AWS_STATIC_STORAGE_BUCKET_NAME = 'assets.liyiting.net'
+AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
+AWS_STATIC_STORAGE_BUCKET_NAME = 'assets-ca.liyiting.net'
 AWS_STATIC_PATH = 'assets'
 
 STATIC_URL = 'https://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
@@ -38,7 +38,7 @@ STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'
 MEDIA_URL = 'https://%s/' % (AWS_S3_CUSTOM_DOMAIN)
 IMAGE_PATH_PREFIX = 'media/images/origin'
 
-"""
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
@@ -46,7 +46,7 @@ CACHES = {
         'MAX_ENTRIES': 10000,
     }
 }
-"""
+
 
 if DEBUG:
     INTERNAL_IPS = ('127.0.0.1', '66.65.162.33', '112.3.55.105')
