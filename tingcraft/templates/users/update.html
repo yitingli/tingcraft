@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load users_tags %}
-
-{% block navigation %}
-{% endblock %}
+{% load staticfiles %}
 
 {% block content %}
-
+    <script type="text/javascript" src="{% static 'plugin/ckeditor/ckeditor.js' %}"></script>
     {% if form.errors %}
         <p>{{ form.errors }}</p>
     {% endif %}
@@ -40,11 +38,18 @@
                 <td>{{ form.last_name.label_tag }}</td>
                 <td>{{ form.last_name }}</td>
             </tr>
-            <tr>
-                <td>{{ form.description.label_tag }}</td>
-                <td>{{ form.description }}</td>
-            </tr>
         </table>
+
+        <p>
+            {{ form.description.label_tag }}<br>
+            <textarea id="id-description" name="description">&lt;p&gt;{{ user.description }}&lt;/p&gt;</textarea>
+            <script>
+                CKEDITOR.config.width = 600
+                // CKEDITOR.config.width = '75%'
+                CKEDITOR.replace('id-description');
+            </script>
+        </p>
+
         <input type="submit" value="{% trans 'Save' %}" />
         {% if update_success %}
             <p>{% trans 'Form saved' %}</p>

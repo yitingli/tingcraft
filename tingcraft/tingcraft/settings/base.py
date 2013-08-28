@@ -105,7 +105,7 @@ PIPELINE_CSS = {
     'libs': {
         'source_filenames': (
             'css/bootstrap.css',
-            'css/ui/jquery-ui-1.10.3.custom.css',
+            #'css/ui/jquery-ui-1.10.3.custom.css',
         ),
         'output_filename': 'css/libs.css',
     },
@@ -115,6 +115,12 @@ PIPELINE_CSS = {
         ),
         'output_filename': 'css/global.css',
     },
+    'ckeditor': {
+        'source_filenames': (
+            'css/ckeditor.css',
+        ),
+        'output_filename': 'css/ckeditor.css',
+    }
 }
 
 

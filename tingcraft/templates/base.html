@@ -17,11 +17,12 @@
 
         {% block stylesheets %}
             {% compressed_css 'libs' %}
+            {% compressed_css 'ckeditor' %}
             {% compressed_css 'global' %}
         {% endblock stylesheets %}
     </head>
 
-    <body {# background="{{ STATIC_URL }}img/background.png" #}>
+    <body {# background="{% static 'img/background.png' %}" #}>
         <div id='body-container'>
             {% block body_container %}
                 <div id="content">

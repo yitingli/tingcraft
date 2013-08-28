@@ -5,10 +5,6 @@ body {
     background-attachment: fixed;
 }
 
-p {
-    margin: 0 0 0px;
-}
-
 #body-container {
 
     max-width: 1000px;
@@ -143,10 +139,6 @@ p {
 
 .clear-both {
     clear: both;
-}
-
-.text-center {
-    text-align: center
 }
 
 

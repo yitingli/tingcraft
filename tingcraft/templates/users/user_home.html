@@ -11,7 +11,7 @@
             <p>{{ owner.email }}</p>
         </div>
         <div>
-            <p>{{ owner.description }}</p>
+            <p>{{ owner.description|safe }}</p>
         </div>
     </div>
 {% endblock %}
