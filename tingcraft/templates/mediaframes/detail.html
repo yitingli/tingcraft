@@ -4,7 +4,7 @@
 {% load users_tags %}
 
 {% block content %}
-    {% thumbnail mediaframe.image_item.image.url FRAME_DETAIL upscale=False as im %}
+    {% thumbnail mediaframe.image_item.image FRAME_DETAIL upscale=False as im %}
         <img src="{{ im.url }}" class="mediaframe-detail-img middle" width="{{ im.width }}" height="{{ im.height }}"/>
     {% endthumbnail %}
     {% if mediaframe.description %}

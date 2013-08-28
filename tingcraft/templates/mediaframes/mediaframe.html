@@ -3,7 +3,7 @@
 
 <div class="frame-container">
     <a href="{% url 'mediaframe:detail' owner_username mediaframe.pk %}">
-        {% thumbnail mediaframe.image_item.image.url FRAME_LIST_CROPPED crop='center' as im %}
+        {% thumbnail mediaframe.image_item.image FRAME_LIST_CROPPED crop='center' as im %}
             <img src="{{ im.url }}" class="mediaframe-image" width="{{ im.width }}" height="{{ im.height }}"/>
         {% endthumbnail %}
         {% if mediaframe.description %}

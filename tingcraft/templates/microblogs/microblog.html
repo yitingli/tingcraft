@@ -5,7 +5,7 @@
     <p class="microblog-content">{{ microblog.content }}</p>
     <div class="microblog-image">
         {% if microblog.media_frame and microblog.media_frame.content_type == 'I' %}
-            {% thumbnail microblog.media_frame.image_item.image.url MICROCOMMENT_IMAGE as im %}
+            {% thumbnail microblog.media_frame.image_item.image MICROCOMMENT_IMAGE as im %}
                 <img src="{{ im.url }}" class="microblog-image" width="{{ im.width }}" height="{{ im.height }}"/>
             {% endthumbnail %}
             <p class="gray small right"> {% trans 'collected to' %} <a href="{% url 'album:mediaframes' owner_username microblog.media_frame.album.slug %}">{{ microblog.media_frame.album }}</a></p>

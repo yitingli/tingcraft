@@ -6,7 +6,7 @@
         <p class="text-center">{{ album.name }}</p>
         <div>
             {% if album.cover %}
-                {% thumbnail album.cover.image_item.image.url ALBUM_COVER_CROPPED crop='center' as im %}
+                {% thumbnail album.cover.image_item.image ALBUM_COVER_CROPPED crop='center' as im %}
                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"/>
                 {% endthumbnail %}
             {% else %}
@@ -16,7 +16,7 @@
         <div class="album-thumb-div">
             {% for thumb in album.get_album_thumb_frames %}
                 {% if thumb %}
-                    {% thumbnail thumb.image_item.image.url FRAME_THUMB_CROPPED crop='center' as im %}
+                    {% thumbnail thumb.image_item.image FRAME_THUMB_CROPPED crop='center' as im %}
                         <span class="thumb-span"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"/></span>
                     {% endthumbnail %}
                 {% else %}
