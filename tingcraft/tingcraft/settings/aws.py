@@ -49,7 +49,7 @@ CACHES = {
 
 
 if DEBUG:
-    INTERNAL_IPS = ('127.0.0.1', '66.65.162.33', '112.3.55.105')
+    INTERNAL_IPS = ('127.0.0.1', '112.3.53.115')
 
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
