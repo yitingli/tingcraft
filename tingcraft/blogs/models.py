@@ -7,7 +7,7 @@ class Blog(TimeStampedModel):
 
     owner = models.ForeignKey('users.TingUser')
     title = models.CharField(max_length=255, default='', db_index=True)
-    content = models.TextField(default='')
+    content = models.TextField(default='', blank=True)
     is_public = models.BooleanField(default=True)
 
     def get_absolute_url(self):
