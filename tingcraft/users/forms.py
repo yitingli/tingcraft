@@ -62,6 +62,7 @@ class TingUserCreateForm(forms.ModelForm):
 class TingUserUpdateForm(forms.ModelForm):
 
     image = forms.ImageField(required=False)
+    brief_description =  forms.CharField(widget=forms.Textarea)
 
     class Meta:
         model = TingUser

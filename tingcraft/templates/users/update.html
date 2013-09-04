@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load users_tags %}
 {% load staticfiles %}
+{% load widget_tweaks %}
 
 {% block content %}
     <script type="text/javascript" src="{% static 'plugin/ckeditor/ckeditor.js' %}"></script>
@@ -27,16 +28,16 @@
                 <a href="{% url 'user_password_change' %}">{% trans 'Change Password' %}</a>
             </tr>
             <tr>
-                <td>{{ form.brief_description.label_tag }}</td>
-                <td>{{ form.brief_description }}</td>
-            </tr>
-            <tr>
                 <td>{{ form.first_name.label_tag }}</td>
                 <td>{{ form.first_name }}</td>
             </tr>
             <tr>
                 <td>{{ form.last_name.label_tag }}</td>
                 <td>{{ form.last_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.brief_description.label_tag }}</td>
+                <td>{{ form.brief_description|attr:"rows:3"|attr:"cols:50" }}</td>
             </tr>
         </table>
 

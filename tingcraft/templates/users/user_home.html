@@ -10,8 +10,6 @@
             <p>{{ owner.get_full_name }}</p>
             <p>{{ owner.email }}</p>
         </div>
-        <div>
-            <p>{{ owner.description|safe }}</p>
-        </div>
+        <div class="cke_contents_ltr">{{ owner.description|safe }}</div>
     </div>
 {% endblock %}

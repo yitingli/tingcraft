@@ -183,6 +183,7 @@ INSTALLED_APPS = (
     'social_auth',
     'sorl.thumbnail',
     'south',
+    'widget_tweaks',
 
     # My apps
     'albums',
