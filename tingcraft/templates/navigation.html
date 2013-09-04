@@ -7,15 +7,14 @@
     <li><a href="{% url 'album:list' owner_username %}">{% trans 'Album' %}</a></li>
     <li><a href="{% url 'noteboard:list' owner_username %}">{% trans 'NoteBoard' %}</a></li>
     <li><a href="">{% trans 'Experience' %}</a></li>
-    <li><a href="">{% trans 'FavorFolder' %}</a></li>
+    {# <li><a href="">{% trans 'FavorFolder' %}</a></li> #}
 </ul>
 <ul class="nav navbar-nav pull-right">
     {% if user.is_authenticated %}
-        <li><a href="{% url 'user_update' %}">{% trans 'Settings' %}</a></li>
-        <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+        <li><form action="{% url 'user_update' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Settings' %}"></form></li>
+        <li><form action="{% url 'logout' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Logout' %}"></form></li>
     {% else %}
-        <li><button type="button" class="btn btn-default navbar-btn right">Sign in</button></li>
-        <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
-        <li><a href="{% url 'register' %}">{% trans 'Register' %}</a></li>
+        <li><form action="{% url 'login' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Login' %}"></form></li>
+        <li><form action="{% url 'register' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Register' %}"></form></li>
     {% endif %}
 </ul>

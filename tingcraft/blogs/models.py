@@ -8,7 +8,7 @@ class Blog(TimeStampedModel):
     owner = models.ForeignKey('users.TingUser')
     title = models.CharField(max_length=255, default='', db_index=True)
     content = models.TextField(default='')
-    is_public = models.BooleanField(default=False)
+    is_public = models.BooleanField(default=True)
 
     def get_absolute_url(self):
         return reverse('blog:list', kwargs={'username': self.owner.username})
