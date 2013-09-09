@@ -8,6 +8,7 @@
             <img src="{% get_avatar owner AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
             <p>{{ owner.get_full_name }}</p>
             <p>{{ owner.email }}</p>
+            <p>{{ owner.birth_date }}</p>
         </div>
         <div class="cke_contents_ltr">{{ owner.description|safe }}</div>
     </div>

@@ -66,7 +66,7 @@ class TingUserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = TingUser
-        fields = ('image', 'email', 'username', 'brief_description', 'first_name', 'last_name', 'description')
+        fields = ('image', 'email', 'username', 'brief_description', 'birth_date', 'first_name', 'last_name', 'description')
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs['initial']['user']

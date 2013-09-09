@@ -36,6 +36,10 @@
                 <td>{{ form.last_name }}</td>
             </tr>
             <tr>
+                <td>{{ form.birth_date.label_tag }}</td>
+                <td>{{ form.birth_date }}</td>
+            </tr>
+            <tr>
                 <td>{{ form.brief_description.label_tag }}</td>
                 <td>{{ form.brief_description|attr:"rows:3"|attr:"cols:50" }}</td>
             </tr>
