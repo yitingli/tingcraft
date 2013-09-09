@@ -14,8 +14,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from albums.models import Album
 from blogs.models import Blog
+from core.datatypes import ObjDataStruct
 from microblogs.models import MicroBlog
 from noteboards.models import NoteBoard
+from experience.models import ExpDevision, ExpItem
 
 
 class TingUserManager(BaseUserManager):
@@ -52,8 +54,8 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
             validators.RegexValidator(re.compile(u'^(?!_)(?!.*?_$)[a-zA-Z0-9_\u4e00-\u9fa5]+$'), _('Enter a valid username.'), 'invalid')]
         )
 
-    first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=30, blank=True)
+    first_name = models.CharField(_('first name'), max_length=30, default='Your', blank=True)
+    last_name = models.CharField(_('last name'), max_length=30, default='Name', blank=True)
     email = models.EmailField(_('email address'), blank=True)
 
     """
@@ -67,7 +69,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
         and some more in the The BLOB and TEXT Types section.
         There's no practical difference between the four TEXT types.
     """
-    description = models.TextField(_('description'), blank=True, default='')
+    description = models.TextField(_('description'), default='Detailed description', blank=True)
 
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin '
@@ -78,7 +80,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
     avatar = models.ForeignKey('mediabox.MediaImage', null=True, blank=True, on_delete=models.SET_NULL)
-    brief_description = models.CharField(_('brief_description'), max_length=180, default='', blank=True)
+    brief_description = models.CharField(_('brief_description'), max_length=180, default='Brief description', blank=True)
 
     registration_status = models.CharField(_('registration status'), max_length=1, default='T')
 
@@ -151,3 +153,11 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
         return Album.objects.filter(criteria)[:size]
+
+    def get_experience(self):
+        queryset = []
+        devisions = ExpDevision.objects.filter(owner=self)
+        for devision in devisions:
+            items = ExpItem.objects.filter(devision=devision)
+            queryset.append(ObjDataStruct(obj=devision, data=items))
+        return queryset

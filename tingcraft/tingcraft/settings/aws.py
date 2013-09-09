@@ -1,7 +1,7 @@
 from base import *
 
-DEBUG = True
-ALLOWED_HOSTS = ['.liyiting.net']
+DEBUG = False
+# ALLOWED_HOSTS = ['.liyiting.net']
 
 THUMBNAIL_DEBUG = True
 

@@ -1,0 +1,11 @@
+{% extends 'user_page_base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block content %}
+    <ul>
+        {% for devision in experience %}
+            {% include 'experience/devision.html' %}
+        {% endfor %}
+    </ul>
+{% endblock %}

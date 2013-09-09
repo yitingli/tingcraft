@@ -6,7 +6,7 @@
     <li><a href="{% url 'blog:list' owner_username %}">{% trans 'Blog' %}</a></li>
     <li><a href="{% url 'album:list' owner_username %}">{% trans 'Album' %}</a></li>
     <li><a href="{% url 'noteboard:list' owner_username %}">{% trans 'NoteBoard' %}</a></li>
-    <li><a href="">{% trans 'Experience' %}</a></li>
+    <li><a href="{% url 'exp:list' owner_username %}">{% trans 'Experience' %}</a></li>
     {# <li><a href="">{% trans 'FavorFolder' %}</a></li> #}
 </ul>
 <ul class="nav navbar-nav pull-right">

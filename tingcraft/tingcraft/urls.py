@@ -24,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^(?P<username>[-_\w]+)/noteboard/', include('noteboards.urls', namespace='noteboard')),
     url(r'^(?P<username>[-_\w]+)/album/', include('albums.urls', namespace='album')),
     url(r'^(?P<username>[-_\w]+)/frame/', include('mediaframes.urls', namespace='mediaframe')),
+    url(r'^(?P<username>[-_\w]+)/experience/', include('experience.urls', namespace='exp')),
 
 )
 

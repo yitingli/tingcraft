@@ -5,9 +5,9 @@ from model_utils.models import TimeStampedModel
 
 class ExpDevision(TimeStampedModel):
 
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, db_index=True)
     owner = models.ForeignKey('users.TingUser')
-    rank = models.IntegerField(default=100)
+    rank = models.IntegerField(default=100, blank=True)
 
 
 class ExpItem(TimeStampedModel):
@@ -22,4 +22,4 @@ class ExpItem(TimeStampedModel):
     other = models.CharField(max_length=255, default='', blank=True)
 
     content = models.TextField(default='', blank=True)
-    rank = models.IntegerField(default=100)
+    rank = models.IntegerField(default=100, blank=True)

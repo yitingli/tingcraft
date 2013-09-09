@@ -1,0 +1,14 @@
+{% load thumbnail %}
+{% load i18n %}
+
+<div>
+    <span>{{ item.title }}</span>
+    <span>{{ item.place }}</span>
+    <span>{{ item.start_date }}</span>
+    <span>{{ item.end_date }}</span>
+    <span>{{ item.position }}</span>
+    <p>{{ item.other }}</p>
+    <div class="cke_contents_ltr">
+        {{ item.content|safe }}
+    </div>
+</div>

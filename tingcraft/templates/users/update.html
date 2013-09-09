@@ -43,7 +43,7 @@
 
         <p>
             {{ form.description.label_tag }}<br>
-            <textarea id="id-description" name="description">&lt;p&gt;{{ user.description }}&lt;/p&gt;</textarea>
+            <textarea id="id-description" name="description">{{ user.description }}</textarea>
             <script>
                 CKEDITOR.config.width = 600
                 // CKEDITOR.config.width = '75%'
