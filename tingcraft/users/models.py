@@ -56,7 +56,8 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
 
     first_name = models.CharField(_('first name'), max_length=30, default='Your', blank=True)
     last_name = models.CharField(_('last name'), max_length=30, default='Name', blank=True)
-    email = models.EmailField(_('email address'), blank=True)
+    email = models.EmailField(_('email address'))
+    birth_date = models.DateField(_('birth date'), blank=True)
 
     """
         Note: TextField is a longtext field in database, in MySQL
