@@ -1,9 +1,7 @@
 from base import *
 
 DEBUG = False
-# ALLOWED_HOSTS = ['.liyiting.net']
-
-THUMBNAIL_DEBUG = True
+ALLOWED_HOSTS = ['.liyiting.net']
 
 DATABASES = {
     'default': {
@@ -49,7 +47,10 @@ CACHES = {
 
 
 if DEBUG:
-    INTERNAL_IPS = ('127.0.0.1', '112.3.53.115')
+
+    THUMBNAIL_DEBUG = True
+
+    INTERNAL_IPS = ('127.0.0.1')
 
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
