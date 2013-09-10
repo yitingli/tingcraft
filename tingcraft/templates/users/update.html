@@ -5,6 +5,10 @@
 {% load widget_tweaks %}
 
 {% block content %}
+    <script type="text/javascript" src="{% static 'plugin/ckeditor/config.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'plugin/ckeditor/skins/moonocolor/editor.css' %}">
+    <script type="text/javascript" src="{% static 'plugin/ckeditor/lang/en.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugin/ckeditor/styles.js' %}"></script>
     <script type="text/javascript" src="{% static 'plugin/ckeditor/ckeditor.js' %}"></script>
     {% if form.errors %}
         <p>{{ form.errors }}</p>
