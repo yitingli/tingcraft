@@ -1,6 +1,7 @@
 from base import *
 
 DEBUG = False
+PIPELINE = False
 ALLOWED_HOSTS = ['.liyiting.net']
 
 DATABASES = {
