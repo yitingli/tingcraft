@@ -81,6 +81,8 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+PIPELINE = False
+
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 
@@ -103,8 +105,8 @@ PIPELINE_JS = {
 
     'ckeditor': {
         'source_filenames': (
-            'plugin/ckeditor/config.js',
             'plugin/ckeditor/ckeditor.js',
+            'plugin/ckeditor/config.js',
             'plugin/ckeditor/lang/en.js',
             'plugin/ckeditor/styles.js',
             ),
@@ -130,8 +132,7 @@ PIPELINE_CSS = {
 
     'ckeditor': {
         'source_filenames': (
-            'css/ckeditor.css',
-            'plugin/ckeditor/skins/moonocolor/editor.css'
+            'plugin/ckeditor/skins/moonocolor/editor.css',
         ),
         'output_filename': 'css/ckeditor.css',
     },
