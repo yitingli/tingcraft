@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 {% block content %}
-    <script type="text/javascript" src="{% static 'plugin/ckeditor/ckeditor.js' %}"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}plugin/ckeditor/ckeditor.js"></script>
     <form method="post" action="{% url 'blog:create' owner_username %}" enctype="multipart/form-data">
         {% csrf_token %}
         <span>{{ form.title.label_tag }}</span>
