@@ -103,10 +103,10 @@ PIPELINE_JS = {
 
     'ckeditor': {
         'source_filenames': (
+            'plugin/ckeditor/ckeditor.js',
             'plugin/ckeditor/config.js',
             'plugin/ckeditor/lang/en.js',
             'plugin/ckeditor/styles.js',
-            'plugin/ckeditor/ckeditor.js',
             ),
         'output_filename': 'js/ckeditor.js',
     }
