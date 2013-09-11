@@ -81,7 +81,9 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-PIPELINE_ENABLED = False
+DJANGO_WYSIWYG_FLAVOR = "ckeditor"
+DJANGO_WYSIWYG_MEDIA_URL = STATIC_URL + 'ckeditor/'
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
@@ -199,7 +201,10 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
 
-    # 3rd party apps
+    # 3rd party apps,
+    'ckeditor',
+    'django_wysiwyg',
+    'tinymce',
     'pipeline',
     'social_auth',
     'sorl.thumbnail',
