@@ -105,14 +105,6 @@ PIPELINE_JS = {
         'output_filename': 'js/site.js',
     },
 
-    'ckeditor': {
-        'source_filenames': (
-            'plugin/ckeditor/*.js',
-            'plugin/ckeditor/*/*.js',
-            'plugin/ckeditor/*/*/*.js',
-        ),
-        'output_filename': 'js/ckeditor.js',
-    }
 }
 
 PIPELINE_CSS = {
@@ -131,16 +123,9 @@ PIPELINE_CSS = {
         'output_filename': 'css/global.css',
     },
 
-    'ckeditor': {
-        'source_filenames': (
-            'plugin/ckeditor/skins/moonocolor/editor.css',
-        ),
-        'output_filename': 'css/ckeditor.css',
-    },
-
     'ckeditor_custom': {
         'source_filenames': (
-            'css/ckeditor.css',
+            'css/ckeditor_custom.css',
         ),
         'output_filename': 'css/ckeditor_custom.css',
     }

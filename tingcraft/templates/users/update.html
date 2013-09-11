@@ -6,8 +6,7 @@
 {% load widget_tweaks %}
 
 {% block content %}
-    {% compressed_css 'ckeditor' %}
-    {% compressed_js 'ckeditor' %}
+    <script type="text/javascript" src="{{ STATIC_URL }}plugin/ckeditor/ckeditor.js"></script>
     {% if form.errors %}
         <p>{{ form.errors }}</p>
     {% endif %}
@@ -51,7 +50,7 @@
             {{ form.description.label_tag }}<br>
             <textarea id="id-description" name="description">{{ user.description }}</textarea>
             <script>
-                CKEDITOR.config.width = 600
+                CKEDITOR.config.width = 650
                 // CKEDITOR.config.width = '75%'
                 CKEDITOR.replace('id-description');
             </script>

@@ -15,14 +15,16 @@
                 <td>{{ form.name }}</td>
             </tr>
             <tr>
-                <td>{{ form.description.label_tag }}</td>
-                <td>{{ form.description }}</td>
-            </tr>
-            <tr>
                 <td>{{ form.is_public.label_tag }}</td>
                 <td>{{ form.is_public }}</td>
             </tr>
         </table>
+
+        {% load wysiwyg %}
+        {% wysiwyg_setup %}
+            <textarea id="id-description" name="description"></textarea>
+        {% wysiwyg_editor "id-description" %}
+
         <input type="submit" value="Create Album" />
     </form>
 {% endblock %}
