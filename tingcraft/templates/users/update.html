@@ -6,7 +6,6 @@
 {% load widget_tweaks %}
 
 {% block content %}
-    {% compressed_css 'ckeditor' %}
     {% compressed_js 'ckeditor' %}
     {% if form.errors %}
         <p>{{ form.errors }}</p>
