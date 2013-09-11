@@ -36,9 +36,6 @@ STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'
 MEDIA_URL = 'https://%s/' % (AWS_S3_CUSTOM_DOMAIN)
 IMAGE_PATH_PREFIX = 'media/images/origin'
 
-DJANGO_WYSIWYG_MEDIA_URL = STATIC_URL + 'ckeditor/'
-CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
-
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
