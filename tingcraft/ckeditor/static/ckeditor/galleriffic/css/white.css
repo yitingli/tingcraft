@@ -33,13 +33,13 @@ div.photo-index {
 	color: #777;
 }
 div.navigation a.prev {
-	/*background-image: url(prevPageArrow.gif);*/
+	background-image: url(prevPageArrow.gif);
 }
 div.navigation a.next {
-	/*background-image: url(nextPageArrow.gif);*/
+	background-image: url(nextPageArrow.gif);
 }
 div.loader {
-	/*background-image: url(loader.gif);*/
+	background-image: url(loader.gif);
 }
 div.slideshow img {
 	border-color: #ccc;

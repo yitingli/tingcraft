@@ -33,13 +33,13 @@ div.photo-index {
 	color: #888;
 }
 div.navigation a.prev {
-	/*background-image: url(prevPageArrowWhite.gif);*/
+	background-image: url(prevPageArrowWhite.gif);
 }
 div.navigation a.next {
-	/*background-image: url(nextPageArrowWhite.gif);*/
+	background-image: url(nextPageArrowWhite.gif);
 }
 div.loader {
-	/*background-image: url(loaderWhite.gif);*/
+	background-image: url(loaderWhite.gif);
 }
 div.slideshow img {
 	border-color: #333;
