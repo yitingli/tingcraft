@@ -4,9 +4,9 @@
 {% load staticfiles %}
 {% load compressed %}
 {% load widget_tweaks %}
-{% load wysiwyg %}
 
 {% block content %}
+    {% compressed_css 'ckeditor' %}
     {% compressed_js 'ckeditor' %}
     {% if form.errors %}
         <p>{{ form.errors }}</p>
@@ -55,11 +55,6 @@
                 // CKEDITOR.config.width = '75%'
                 CKEDITOR.replace('id-description');
             </script>
-        </div>
-        <div>
-            {% wysiwyg_setup %}
-                <textarea id="foo"></textarea>
-            {% wysiwyg_editor "foo" %}
         </div>
 
         <input type="submit" value="{% trans 'Save' %}" />
