@@ -202,7 +202,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     # 3rd party apps,
-    'ckeditor',
     'django_wysiwyg',
     'tinymce',
     'pipeline',
@@ -214,6 +213,7 @@ INSTALLED_APPS = (
     # My apps
     'albums',
     'blogs',
+    'ckeditor',
     'experience',
     'microblogs',
     'mediabox',
