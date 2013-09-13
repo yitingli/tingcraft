@@ -17,7 +17,7 @@ class ExpItemAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': CKEditorWidget()},
     }
-    list_display = ('pk', 'title', 'position', 'place', 'content')
+    list_display = ('pk', 'title', 'position', 'city', 'content')
     search_fields = ['pk', 'title']
     date_hierarchy = 'created'
 

@@ -6,8 +6,10 @@
     <span class="right">{{ item.end_date }}</span>
     <span class="right">{{ item.start_date }} - </span>
     <br>
-    <span>{{ item.position }}</span>
-    <span class="right">{{ item.place }}</span>
+    <span class="oblique">{{ item.position }}</span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span class="oblique bold">{{ item.institute }}</span>
+    <span class="right oblique">{{ item.city }}</span>
     <div class="cke_contents_ltr">
         {{ item.content|safe }}
     </div>

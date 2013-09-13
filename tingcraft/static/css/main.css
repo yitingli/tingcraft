@@ -99,6 +99,14 @@ body {
     overflow: hidden;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.oblique {
+    font-style: oblique;
+}
+
 .gray {
     color: #999;
 }
