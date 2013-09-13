@@ -9,6 +9,7 @@ from .serializers import ExpDevisionCreateSerializer, ExpItemCreateSerializer
 from core.permissions import IsOwnerOrReadOnly
 from core.mixins import OwnerContextMixin
 from users.models import TingUser
+from mediabox.models import MediaFile
 
 
 class ExpListView(OwnerContextMixin, ListView):
@@ -21,6 +22,11 @@ class ExpListView(OwnerContextMixin, ListView):
         self.owner = get_object_or_404(TingUser, username=username)
         queryset = self.owner.get_experience()
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(ExpListView, self).get_context_data(**kwargs)
+        context['documents'] = MediaFile.objects.filter(owner=self.owner).order_by('-rank')
+        return context
 
 
 class ExpDevisionCreateAPIView(APIView):

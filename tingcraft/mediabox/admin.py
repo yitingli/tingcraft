@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import MediaImage, MediaVideo
+from .models import MediaImage, MediaVideo, MediaFile
 
 
 class MediaImageAdmin(admin.ModelAdmin):
@@ -15,3 +15,10 @@ class MediaVideoAdmin(admin.ModelAdmin):
     search_fields = ['pk', 'owner']
 
 admin.site.register(MediaVideo, MediaVideoAdmin)
+
+
+class MediaFileAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'owner', 'doc', 'rank')
+    search_fields = ['pk', 'owner']
+
+admin.site.register(MediaFile, MediaFileAdmin)

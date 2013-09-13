@@ -4,6 +4,12 @@
 
 {% block content %}
     <div class="exp-container">
+        <span>{%trans 'Documents:' %}</span>
+        <span>&nbsp;&nbsp;</span>
+        {% for doc in documents %}
+            <span><a href="{{ doc.doc.url }}">{{ doc.title }}</a></span>
+            <span>&nbsp;&nbsp;</span>
+        {% endfor %}
         <hr>
         {% for devision in experience %}
             {% include 'experience/devision.html' %}

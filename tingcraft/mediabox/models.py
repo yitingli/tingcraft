@@ -2,7 +2,7 @@ from django.db import models
 from model_utils.models import TimeStampedModel
 from sorl.thumbnail import get_thumbnail
 
-from .helpers import upload_image_filename
+from .helpers import upload_image_filename, upload_file_filename
 
 
 class MediaBase(TimeStampedModel):
@@ -37,3 +37,10 @@ class MediaImage(MediaBase):
 class MediaVideo(MediaBase):
 
     video_code = models.CharField(max_length=255, default='', blank=True)
+
+
+class MediaFile(MediaBase):
+
+    title = models.CharField(max_length=50, default='Untitled', blank=True)
+    doc = models.FileField(upload_to=upload_file_filename)
+    rank = models.FloatField(default=100.0, blank=True)
