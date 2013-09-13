@@ -20,15 +20,14 @@ class BlogListView(BlogPaginationMixin, OwnerContextMixin, ListView):
     def get_queryset(self):
         username = self.kwargs['username']
         self.owner = get_object_or_404(TingUser, username=username)
-        if self.request.user == self.owner:
-            queryset = self.owner.get_blogs(max_id=self.max_id, only_public=False)
-        else:
-            queryset = self.owner.get_blogs(max_id=self.max_id)
+        queryset = self.owner.get_blogs(max_id=self.max_id)
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super(BlogListView, self).get_context_data(**kwargs)
         context['owner'] = self.owner
+        if self.request.user == self.owner:
+            context['private_blogs'] = self.owner.get_blogs(max_id=self.max_id, public=False)
         return context
 
 

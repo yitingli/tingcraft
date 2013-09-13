@@ -12,5 +12,13 @@
             {% include 'blogs/blog.html' %}
             <hr class="blog-hr">
         {% endfor %}
+        {% if private_blogs %}
+            <h4>{% trans 'Drafts: ' %}</h4>
+            <hr class="blog-hr">
+            {% for blog in private_blogs %}
+                {% include 'blogs/blog.html' %}
+                <hr class="blog-hr">
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
