@@ -50,4 +50,4 @@ def upload_file_filename(instance, filename):
     """
     _, extension = path.splitext(filename)
     key = get_key(instance, filename)
-    return '%s/%s/%s/%s/%s%s' % (settings.IMAGE_PATH_PREFIX, key[:2], key[2:4], key[4:6], key, extension)
+    return '%s/%s/%s/%s/%s%s' % (settings.FILE_PATH_PREFIX, key[:2], key[2:4], key[4:6], key, extension)
