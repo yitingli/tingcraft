@@ -7,7 +7,6 @@ class CustomThumbnailBackend(ThumbnailBackend):
 
     def _get_thumbnail_filename(self, source, geometry_string, options):
         index = len(settings.IMAGE_PATH_PREFIX) + 1
-        print index
         crop = options['crop']
         if crop:
             thumb_path = '%s/%s/%s' % (crop, geometry_string, source.name[index:])

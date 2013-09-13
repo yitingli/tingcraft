@@ -48,6 +48,8 @@ THUMBNAIL_PATH_PREFIX = 'thumbnails'
 THUMBNAIL_BACKEND = 'mediabox.backends.CustomThumbnailBackend'
 # THUMBNAIL_UPSCALE = False
 
+FILE_PATH_PREFIX = 'files/origin'
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
@@ -84,6 +86,12 @@ STATICFILES_FINDERS = (
 DJANGO_WYSIWYG_FLAVOR = "ckeditor"
 DJANGO_WYSIWYG_MEDIA_URL = STATIC_URL + 'ckeditor/'
 CKEDITOR_UPLOAD_PATH = PROJECT_DIR # Must block the upload functionality
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+    },
+}
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'

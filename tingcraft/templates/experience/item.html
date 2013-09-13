@@ -2,13 +2,14 @@
 {% load i18n %}
 
 <div>
-    <span>{{ item.title }}</span>
-    <span>{{ item.place }}</span>
-    <span>{{ item.start_date }}</span>
-    <span>{{ item.end_date }}</span>
+    <span class="exp-item-title">{{ item.title }}</span>
+    <span class="right">{{ item.end_date }}</span>
+    <span class="right">{{ item.start_date }} - </span>
+    <br>
     <span>{{ item.position }}</span>
-    <p>{{ item.other }}</p>
+    <span class="right">{{ item.place }}</span>
     <div class="cke_contents_ltr">
         {{ item.content|safe }}
     </div>
+    <p>{{ item.other }}</p>
 </div>

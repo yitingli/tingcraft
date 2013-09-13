@@ -2,7 +2,7 @@ from django.db import models
 from model_utils.models import TimeStampedModel
 from sorl.thumbnail import get_thumbnail
 
-from .helpers import upload_filename
+from .helpers import upload_image_filename
 
 
 class MediaBase(TimeStampedModel):
@@ -19,7 +19,7 @@ class MediaImage(MediaBase):
     extension = models.CharField(max_length=10, default='', blank=True)
     width = models.IntegerField(default=0)
     height = models.IntegerField(default=0)
-    image = models.ImageField(upload_to=upload_filename, width_field='width',
+    image = models.ImageField(upload_to=upload_image_filename, width_field='width',
                               height_field='height')
 
     def get_image(self, geometry, crop='center'):

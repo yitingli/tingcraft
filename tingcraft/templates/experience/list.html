@@ -3,9 +3,11 @@
 {% load i18n %}
 
 {% block content %}
-    <ul>
+    <div class="exp-container">
+        <hr>
         {% for devision in experience %}
             {% include 'experience/devision.html' %}
+            <hr>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

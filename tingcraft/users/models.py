@@ -157,7 +157,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
 
     def get_experience(self):
         queryset = []
-        devisions = ExpDevision.objects.filter(owner=self)
+        devisions = ExpDevision.objects.filter(owner=self).order_by('-rank')
         for devision in devisions:
             items = ExpItem.objects.filter(devision=devision)
             queryset.append(ObjDataStruct(obj=devision, data=items))

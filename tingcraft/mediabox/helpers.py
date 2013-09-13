@@ -26,13 +26,28 @@ def _get_thumbnail_filename(self, source, geometry_string, options):
                             EXTENSIONS[options['format']])
 """
 
-
-def upload_filename(instance, filename):
-
+def get_key(instance, filename):
     SECRET_KEY = 'Or3An6ge'
-    _, extension = path.splitext(filename)
     fmt = "%Y%m%d%H%M%S%f"
     utc_now = datetime.utcnow().strftime(fmt)
     randnum = randint(10000, 99999)
     key = tokey(instance.owner.username, filename, utc_now, SECRET_KEY, str(randnum))
+    return key
+
+
+def upload_image_filename(instance, filename):
+    """
+    Used to upload images
+    """
+    _, extension = path.splitext(filename)
+    key = get_key(instance, filename)
+    return '%s/%s/%s/%s/%s%s' % (settings.IMAGE_PATH_PREFIX, key[:2], key[2:4], key[4:6], key, extension)
+
+
+def upload_file_filename(instance, filename):
+    """
+    Used to upload general files
+    """
+    _, extension = path.splitext(filename)
+    key = get_key(instance, filename)
     return '%s/%s/%s/%s/%s%s' % (settings.IMAGE_PATH_PREFIX, key[:2], key[2:4], key[4:6], key, extension)

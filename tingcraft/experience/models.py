@@ -15,10 +15,11 @@ class ExpItem(TimeStampedModel):
     devision = models.ForeignKey('experience.ExpDevision', null=True, blank=True)
 
     title = models.CharField(max_length=255)
-    place = models.CharField(max_length=50, default='', blank=True)
+    city = models.CharField(max_length=50, default='', blank=True)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     position = models.CharField(max_length=255, default='', blank=True)
+    institute = models.CharField(max_length=255, default='', blank=True)
     other = models.CharField(max_length=255, default='', blank=True)
 
     content = models.TextField(default='', blank=True)

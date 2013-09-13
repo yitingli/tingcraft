@@ -3,7 +3,7 @@
 {% load users_tags %}
 
 {% block content %}
-    <div>
+    <div id='homepage-container'>
         <div>
             <img src="{% get_avatar owner AVATAR_SMALL_CROPPED %}" width="AVATAR_SMALL" height="AVATAR_SMALL" >
             <p>{{ owner.get_full_name }}</p>

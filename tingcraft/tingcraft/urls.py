@@ -13,6 +13,8 @@ urlpatterns = patterns('',
 
     url(r'^$', HomeView.as_view(), name='home'),
 
+    url(r'^ckeditor/', include('ckeditor.urls')),
+
     url(r'^accounts/', include('users.urls')),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
