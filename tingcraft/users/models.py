@@ -131,26 +131,32 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
             criteria = criteria & Q(pk__lt=max_id)
         return MicroBlog.objects.filter(criteria).order_by('-created')[:size]
 
-    def get_blogs(self, max_id=0, size=settings.PAGE_SIZE['BLOG'], only_public=True):
+    def get_blogs(self, max_id=0, size=settings.PAGE_SIZE['BLOG'], public=True):
         criteria = Q(owner=self)
-        if only_public:
+        if public:
             criteria = criteria & Q(is_public=True)
+        else:
+            criteria = criteria & Q(is_public=False)
         if max_id:
-            criteria = criteria & Q(pk__lt=max_id) 
+            criteria = criteria & Q(pk__lt=max_id)
         return Blog.objects.filter(criteria)[:size]
 
-    def get_noteboards(self, max_id, size=settings.PAGE_SIZE['NOTEBOARD'], only_public=True):
+    def get_noteboards(self, max_id, size=settings.PAGE_SIZE['NOTEBOARD'], public=True):
         criteria = Q(owner=self)
-        if only_public:
+        if public:
             criteria = criteria & Q(is_public=True)
+        else:
+            criteria = criteria & Q(is_public=False)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
         return NoteBoard.objects.filter(criteria)[:size]
 
-    def get_albums(self, max_id, size=settings.PAGE_SIZE['ALBUM'], only_public=True):
+    def get_albums(self, max_id, size=settings.PAGE_SIZE['ALBUM'], public=True):
         criteria = Q(owner=self)
-        if only_public:
+        if public:
             criteria = criteria & Q(is_public=True)
+        else:
+            criteria = criteria & Q(is_public=False)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
         return Album.objects.filter(criteria)[:size]

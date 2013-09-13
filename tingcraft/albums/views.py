@@ -26,6 +26,7 @@ class AlbumListView(AlbumPaginationMixin, OwnerContextMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(AlbumListView, self).get_context_data(**kwargs)
         context['owner'] = self.owner
+        context['private_albums'] = self.owner.get_albums(max_id=self.max_id, public=False)
         return context
 
 

@@ -13,5 +13,12 @@
         {% for album in albums %}
             {% include 'albums/album.html' %}
         {% endfor %}
+        <br>
+        {% if user.is_authenticated and user.username == owner_username %}
+            <h4> {% trans 'Private Albums:' %}</h4>
+            {% for album in private_albums %}
+                {% include 'albums/album.html' %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
