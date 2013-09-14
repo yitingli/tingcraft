@@ -18,6 +18,8 @@ class Album(TimeStampedModel):
 
     is_public = models.BooleanField(default=True)
 
+    rank = models.FloatField(default=100.0, blank=True)
+
     class Meta:
         unique_together = (('owner', 'slug'), )
 
@@ -35,10 +37,10 @@ class Album(TimeStampedModel):
         criteria = Q(album=self)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
-        return MediaFrame.objects.filter(criteria)[:size]
+        return MediaFrame.objects.filter(criteria).order_by('-created')[:size]
 
     def get_album_thumb_frames(self):
-        mediaframes = MediaFrame.objects.filter(album=self).order_by('?')[:4]
+        mediaframes = MediaFrame.objects.filter(album=self).order_by('-created')[:4]
         frame_list = list(mediaframes)
         while len(frame_list) < 4:
             frame_list.append(None)
