@@ -159,7 +159,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
             criteria = criteria & Q(is_public=False)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
-        return Album.objects.filter(criteria)[:size]
+        return Album.objects.filter(criteria).order_by('-rank')[:size]
 
     def get_experience(self):
         queryset = []
