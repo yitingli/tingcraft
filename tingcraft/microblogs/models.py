@@ -10,6 +10,9 @@ class MicroBlog(TimeStampedModel):
     content = models.CharField(max_length=180, default='', blank=True)
     media_frame = models.ForeignKey('mediaframes.MediaFrame', null=True, blank=True)
 
+    def __unicode__(self):
+        return self.content
+
     def get_absolute_url(self):
         return reverse('microblog:list', kwargs={'username': self.owner.username})
 

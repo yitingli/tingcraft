@@ -22,6 +22,9 @@ class MediaFrame(TimeStampedModel):
     image_item = models.ForeignKey('mediabox.MediaImage', null=True, blank=True)
     video_item = models.ForeignKey('mediabox.MediaVideo', null=True, blank=True)
 
+    def __unicode__(self):
+        return self.description or self.image_item.image.url
+
     def get_absolute_url(self):
         return reverse('album:list', kwargs={'username': self.owner.username})
 

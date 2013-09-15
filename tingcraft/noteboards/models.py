@@ -18,6 +18,9 @@ class NoteBoard(TimeStampedModel):
     class Meta:
         unique_together = (('owner', 'slug'), )
 
+    def __unicode__(self):
+        return self.title
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(NoteBoard, self).save(*args, **kwargs)
@@ -33,6 +36,9 @@ class Note(TimeStampedModel):
 
     board = models.ForeignKey('noteboards.NoteBoard')
     content = models.TextField(default='', blank=True)
+
+    def __unicode__(self):
+        return self.content[:30]
 
 
 class NoteComment(TimeStampedModel):

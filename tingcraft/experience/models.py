@@ -9,6 +9,9 @@ class ExpDevision(TimeStampedModel):
     owner = models.ForeignKey('users.TingUser')
     rank = models.IntegerField(default=100, blank=True)
 
+    def __unicode__(self):
+        return self.name
+
 
 class ExpItem(TimeStampedModel):
 
@@ -24,3 +27,6 @@ class ExpItem(TimeStampedModel):
 
     content = models.TextField(default='', blank=True)
     rank = models.IntegerField(default=100, blank=True)
+
+    def __unicode__(self):
+        return self.title
