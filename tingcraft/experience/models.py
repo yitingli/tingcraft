@@ -7,7 +7,8 @@ class ExpDevision(TimeStampedModel):
 
     name = models.CharField(max_length=255, db_index=True)
     owner = models.ForeignKey('users.TingUser')
-    rank = models.IntegerField(default=100, blank=True)
+    rank = models.FloatField(default=100.0, blank=True)
+    description = models.CharField(max_length=255, default='', blank=True)
 
     def __unicode__(self):
         return self.name

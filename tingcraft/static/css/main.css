@@ -307,6 +307,17 @@ body {
     margin-right: auto;
 }
 
+.exp-devision-name {
+    font-size: 35px;
+}
+
+.exp-devision-description {
+    color: #4a4a4a;
+    font-size: 16px;
+    font-style: oblique;
+    margin-left: 20px;
+}
+
 .exp-item-title {
     font-size: 18px;
     font-weight: bold;
