@@ -7,11 +7,11 @@
     <head>
         <title>
             {% block page_title %}
-                Yiting Li © 2013
+                Yiting Li 2013
             {% endblock page_title %}
         </title>
 
-        {% block js_in_header %}
+        {% block js_in_head %}
             {% compressed_js 'libs' %}
         {% endblock %}
 
@@ -20,18 +20,28 @@
             {% compressed_css 'ckeditor_custom' %}
             {% compressed_css 'global' %}
         {% endblock stylesheets %}
+
+        {% block head_special %}
+        {% endblock %}
     </head>
 
-    <body {# background="{% static 'img/background.png' %}" #}>
-        <div id='body-container'>
-            {% block body_container %}
-                <div id="content">
-                    {% block content %}
-                    {% endblock %}
-                </div>
+    <body>
+
+        {% block background %}
+            <div id="general-background"></div>
+        {% endblock %}
+
+        {% block body %}
+            <div id='body-container'>
+                {% block body_container %}
+                    <div id="content">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            </div>
+            {% block js_in_body %}
             {% endblock %}
-        </div>
-        {% block js_in_body %}
         {% endblock %}
     </body>
 

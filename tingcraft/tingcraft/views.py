@@ -6,9 +6,14 @@ from users.models import TingUser
 from core.mixins import OwnerContextMixin
 
 
-class HomeView(RedirectView):
+class HomeView(TemplateView):
 
-    url = '/yiting'
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['background_image_url'] = None
+        return context
 
 
 class UserHomeView(OwnerContextMixin, TemplateView):
