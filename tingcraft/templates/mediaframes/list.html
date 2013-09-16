@@ -4,7 +4,7 @@
 {% load users_tags %}
 
 {% block content %}
-    <div class="text-center">
+    <div>
         <h3>{{ album.name }}</h3>
     </div>
     <p>{{ album.description|safe }}</p>
@@ -13,9 +13,11 @@
             <a href="{% url 'mediaframe:create' owner_username %}">{% trans 'Create Photo/Video' %}</a>
         </div>
     {% endif %}
+    <hr>
     <div>
         {% for mediaframe in mediaframes %}
             {% include 'mediaframes/mediaframe.html' %}
         {% endfor %}
     </div>
+    <hr>
 {% endblock %}

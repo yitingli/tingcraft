@@ -8,7 +8,7 @@ body {
 
 #body-container {
 
-    max-width: 1000px;
+    max-width: 994px;
     min-height: 600px;
     background-color: #FFF;
     /*background-color: #F0F0F0;*/
@@ -67,9 +67,10 @@ body {
 
 #content-container {
     /*background-color: #F0F0F0;*/
-    margin-top: 35px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-top: 25px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 30px;
 
 }
@@ -194,8 +195,8 @@ body {
 
     display: inline-block;
 
+    margin-top: 20px;
     margin-right: 10px;
-    margin-bottom: 20px;
 
     padding: 7px;
 
@@ -239,10 +240,10 @@ body {
 /* ---------- Frame related style ----------- */
 .frame-container {
     position: relative;
-    width: 288px;
+    width: 285px;
 
-    margin-right: 9px;
     margin-bottom: 15px;
+    margin-right: 10px;
 
     padding: 0px;
 
