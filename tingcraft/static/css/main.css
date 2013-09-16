@@ -67,9 +67,9 @@ body {
 
 #content-container {
     /*background-color: #F0F0F0;*/
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-top: 35px;
+    margin-left: 60px;
+    margin-right: 60px;
     margin-bottom: 30px;
 
 }
@@ -179,9 +179,13 @@ body {
     margin-left: 8px;
 }
 
+.text-center {
+    text-align: center;
+}
+
 /* ---------- Homepage related ------------ */
 #homepage-container {
-    width: 95%;
+    width: 100%;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -333,7 +337,7 @@ body {
 
 /* --------- Experience related style ---------- */
 .exp-container {
-    width: 90%;
+    width: 95%;
 
     margin-top: 20px;
     margin-left: auto;
@@ -354,4 +358,13 @@ body {
 .exp-item-title {
     font-size: 18px;
     font-weight: bold;
+}
+
+
+/* --------- NoteBoard related style ---------- */
+.note-container {
+    width: 95%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }

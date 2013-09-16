@@ -1,7 +1,8 @@
 {% load thumbnail %}
 {% load i18n %}
 
-<ul>
+<div class="note-container">
     <div class="content"><p>{{ note.content|linebreaks }}</p></div>
-    <div class="time"><p>{{ note.created }}</p></div>
-</ul>
+    <div class="gray right small"><p>{{ note.created }}</p></div>
+    <span class="clear-right"></span>
+</div>

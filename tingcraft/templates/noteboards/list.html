@@ -3,10 +3,17 @@
 {% load i18n %}
 
 {% block content %}
-    <ul>
+    <div class='text-center'>
+        <h2>{% trans 'Note Board' %}</h2>
+        <p class="gray">{% trans 'Make notes of your daily work and studies' %}</p>
+        <br>
+    </div>
+    <div>
         {% for noteboard in noteboards %}
-            <p><a href="{% url 'noteboard:board_notes' owner_username noteboard.slug %}">{{ noteboard.title }}</a></p>
-            __________________________________________
+            <a href="{% url 'noteboard:board_notes' owner_username noteboard.slug %}" >
+                <p class="blog-title">{{ noteboard.title }}</p>
+            </a>
+            <hr>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
