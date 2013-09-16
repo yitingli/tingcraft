@@ -68,8 +68,8 @@ body {
 #content-container {
     /*background-color: #F0F0F0;*/
     margin-top: 35px;
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 50px;
+    margin-right: 50px;
     margin-bottom: 30px;
 
 }
@@ -179,13 +179,9 @@ body {
     margin-left: 8px;
 }
 
-.text-center {
-    text-align: center;
-}
-
 /* ---------- Homepage related ------------ */
 #homepage-container {
-    width: 100%;
+    width: 95%;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -198,8 +194,8 @@ body {
 
     display: inline-block;
 
-    margin-top: 20px;
     margin-right: 10px;
+    margin-bottom: 20px;
 
     padding: 7px;
 
@@ -245,8 +241,8 @@ body {
     position: relative;
     width: 288px;
 
-    margin-top: 15px;
     margin-right: 9px;
+    margin-bottom: 15px;
 
     padding: 0px;
 
