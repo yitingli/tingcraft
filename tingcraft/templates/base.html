@@ -11,10 +11,6 @@
             {% endblock page_title %}
         </title>
 
-        {% block js_in_head %}
-            {% compressed_js 'libs' %}
-        {% endblock %}
-
         {% block stylesheets %}
             {% compressed_css 'libs' %}
             {% compressed_css 'ckeditor_custom' %}
@@ -22,6 +18,10 @@
         {% endblock stylesheets %}
 
         {% block head_special %}
+        {% endblock %}
+
+        {% block js_in_head %}
+            {% compressed_js 'libs' %}
         {% endblock %}
     </head>
 
