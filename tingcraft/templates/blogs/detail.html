@@ -4,9 +4,11 @@
 
 {% block content_main %}
     <div class="blog-detail-container">
-        <p>{{ blog.title }}</p>
-        <span class="time right">{{ blog.created }}</span>
-        <span class="clear-right"></span>
+        <div class="text-center">
+            <p class="blog-title">{{ blog.title }}</p>
+            <span class="gray small">{{ blog.created }}</span>
+        </div>
+        <hr>
         <div class="content"><p>{{ blog.content|safe }}</p></div>
     </div>
 {% endblock %}
