@@ -82,7 +82,7 @@ body {
 #content-sidebar {
     width: 250px;
 
-    min-height: 300px;
+    min-height: 390px;
 
     padding: 15px;
 
@@ -216,7 +216,7 @@ body {
 
 .album-sidebar-container {
     width: 18%;
-    min-height: 240px;
+    min-height: 390px;
 
     padding-top: 10px;
     padding-bottom: 10px;
