@@ -18,10 +18,16 @@
 
         <div id="content-container" class="white">
             {% block content %}
-                <div id="content-main">
+                <div id="content-main" class="left">
                     {% block content_main %}
                     {% endblock %}
                 </div>
+                <div id="content-sidebar" class="right">
+                    {% block content_sidebar %}
+                        <p align="center">{% trans 'Side Bar' %}</p>
+                    {% endblock %}
+                </div>
+                <br class="clear-both"/>
             {% endblock %}
         </div>
     </div>

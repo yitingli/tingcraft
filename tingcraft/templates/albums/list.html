@@ -9,7 +9,7 @@
             <a href="{% url 'album:create' owner_username %}">{% trans 'Create Album' %}</a>
         </div>
     {% endif %}
-    <div>
+    <div class="album-list-container left">
         {% for album in albums %}
             {% include 'albums/album.html' %}
         {% endfor %}
@@ -21,4 +21,12 @@
             {% endfor %}
         {% endif %}
     </div>
+    <div class="album-sidebar-container right text-center">
+        <p>{% trans 'Popular' %}</p>
+        <hr>
+        {% for frame in popular_frames %}
+
+        {% endfor %}
+    </div>
+    <br class="clear-both"/>
 {% endblock %}

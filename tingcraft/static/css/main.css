@@ -6,10 +6,6 @@ body {
     height: 100%;
 }
 
-div.inline {
-    float: left;
-}
-
 #body-container {
 
     max-width: 980px;
@@ -81,6 +77,25 @@ div.inline {
 
 #content-main {
     width: 600px;
+}
+
+#content-sidebar {
+    width: 250px;
+
+    min-height: 300px;
+
+    padding: 15px;
+
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+
+    -webkit-box-shadow: 0px 0px 1px #4a4a4a;
+    -moz-box-shadow: 0px 0px 1px #4a4a4a;
+    box-shadow: 0px 0px 1px #4a4a4a;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
 }
 
 #header-profile {
@@ -194,12 +209,37 @@ div.inline {
 
 
 /* ---------- Album related style ----------- */
+.album-list-container {
+    width: 82%;
+    margin-top: 20px;
+}
+
+.album-sidebar-container {
+    width: 18%;
+    min-height: 240px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    -webkit-box-shadow: 0px 0px 1px #4a4a4a;
+    -moz-box-shadow: 0px 0px 1px #4a4a4a;
+    box-shadow: 0px 0px 1px #4a4a4a;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+}
+
 .album-container {
     width: 226px;
 
     display: inline-block;
 
-    margin-top: 20px;
+    margin-bottom: 20px;
     margin-right: 10px;
 
     padding: 7px;
