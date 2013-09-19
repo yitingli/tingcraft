@@ -14,7 +14,7 @@ class Album(TimeStampedModel):
     name = models.CharField(max_length=30)
     slug = models.SlugField()
     cover = models.ForeignKey('mediaframes.MediaFrame', null=True, blank=True, related_name='cover')
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, blank=True)
 
     is_public = models.BooleanField(default=True)
 

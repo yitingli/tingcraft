@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from .models import TingUser
+from albums.models import Album
 from mediabox.models import MediaImage
 
 
@@ -56,6 +57,9 @@ class TingUserCreateForm(forms.ModelForm):
         user.set_registration_complete()
         if commit:
             user.save()
+            album = Album(owner=user, name="MicroBlog", is_public=False,\
+                      description="Used as default album for microblog images")
+            album.save()
         return user
 
 

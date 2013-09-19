@@ -32,7 +32,7 @@ class TingUserCreateView(CreateView):
 
     #@Note: CreateView, UpdateView has built-in FormMixin
     def get_success_url(self):
-        return reverse('home')
+        return reverse('user_home', kwargs={'username': self.username})
 
     #@Note: replace [if form.is_valid():]; redirects to get_success_url()
     def form_valid(self, form):
@@ -41,7 +41,8 @@ class TingUserCreateView(CreateView):
                                  password=form.cleaned_data['password'])
         if user is not None:
             auth.login(self.request, user)
-            return super(TingUserCreateView, self).form_valid(form)
+            self.username = form.cleaned_data['username']
+            return HttpResponseRedirect(self.get_success_url())
         else:
             return render(self.request, 'users/create.html', {'form': form, 'error_msg': 'create error'})
 

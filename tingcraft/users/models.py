@@ -34,6 +34,9 @@ class TingUserManager(BaseUserManager):
                           last_login=now, date_joined=now, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
+        album = Album(owner=user, name="MicroBlog", is_public=False,\
+                      description="Used as default album for microblog images")
+        album.save()
         return user
 
     def create_superuser(self, email, username, password, **extra_fields):
@@ -57,7 +60,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
     first_name = models.CharField(_('first name'), max_length=30, default='Your', blank=True)
     last_name = models.CharField(_('last name'), max_length=30, default='Name', blank=True)
     email = models.EmailField(_('email address'))
-    birth_date = models.DateField(_('birth date'), blank=True)
+    birth_date = models.DateField(_('birth date'), null=True, blank=True)
 
     """
         Note: TextField is a longtext field in database, in MySQL
@@ -89,6 +92,9 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email', ]
+
+    def __unicode__(self):
+        return self.username
 
     def get_absolute_url(self):
         return "/users/%s/" % urlquote(self.username)
@@ -149,7 +155,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
             criteria = criteria & Q(is_public=False)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
-        return NoteBoard.objects.filter(criteria)[:size]
+        return NoteBoard.objects.filter(criteria).order_by('-rank')[:size]
 
     def get_albums(self, max_id, size=settings.PAGE_SIZE['ALBUM'], public=True):
         criteria = Q(owner=self)
