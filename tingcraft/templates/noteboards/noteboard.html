@@ -11,9 +11,10 @@
         <h3>{{ noteboard.title }}</h3>
         <hr>
     </div>
-    <div>
+    <div class="note-list-container">
         {% for note in notes %}
             {% include 'noteboards/note.html' %}
         {% endfor %}
+        <br class="clear-both"/>
     </div>
 {% endblock %}
