@@ -13,6 +13,9 @@ urlpatterns = patterns('',
 
     url(r'^$', HomeView.as_view(), name='home'),
 
+    url(r'^api/', include('core.api', namespace='api')),
+    url(r'^rest/', include('rest_framework.urls', namespace='rest_framework')),
+
     url(r'^ckeditor/', include('ckeditor.urls')),
 
     url(r'^accounts/', include('users.urls')),

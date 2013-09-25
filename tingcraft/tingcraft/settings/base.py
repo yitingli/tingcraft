@@ -113,6 +113,12 @@ PIPELINE_JS = {
         'output_filename': 'js/site.js',
     },
 
+    'note': {
+        'source_filenames': (
+            'js/note.js',
+        ),
+        'output_filename': 'js/note.js',
+    },
 }
 
 PIPELINE_CSS = {
@@ -198,6 +204,8 @@ INSTALLED_APPS = (
     'django_wysiwyg',
     'tinymce',
     'pipeline',
+    'rest_framework',
+    'rest_framework.authtoken',
     'social_auth',
     'sorl.thumbnail',
     'south',
@@ -259,7 +267,7 @@ PAGE_SIZE = {
     'MICROBLOG': 50,
     'MICROCOMMENT': 5,
     'NOTEBOARD': 10,
-    'NOTE': 10,
+    'NOTE': 50,
     'BLOG': 10,
     'ALBUM': 15,
     'MEDIAFRAME': 30,
@@ -281,4 +289,34 @@ IMAGE_SIZE = {
     'FRAME_THUMB_CROPPED': '50x50',
     'FRAME_THUMB_WIDTH': '50'
 
+}
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/register/'
+LOGIN_ERROR_URL = '/login-error/'
+
+REST_FRAMEWORK = {
+    # Use hyperlinked styles by default.
+    # Only used if the `serializer_class` attribute is not set on a view.
+    'DEFAULT_MODEL_SERIALIZER_CLASS':
+        'rest_framework.serializers.HyperlinkedModelSerializer',
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        #'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        #'rest_framework.authentication.OAuth2Authentication',
+    ),
+
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.JSONRenderer',
+    # ),
+
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ),
+
+    'PAGINATE_BY': 10
 }

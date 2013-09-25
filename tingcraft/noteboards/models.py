@@ -27,9 +27,9 @@ class NoteBoard(TimeStampedModel):
 
     def get_notes(self, max_id, size=settings.PAGE_SIZE['NOTE']):
         if max_id == 0:
-            return Note.objects.filter(board=self)[:size]
+            return Note.objects.filter(board=self).order_by('-created')[:size]
         else:
-            return Note.objects.filter(pk__lt=max_id, board=self)[:size]
+            return Note.objects.filter(pk__lt=max_id, board=self).order_by('-created')[:size]
 
 
 class Note(TimeStampedModel):

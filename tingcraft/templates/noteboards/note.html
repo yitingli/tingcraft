@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <div class="note-container left">
-    <div class="content"><p>{{ note.content|linebreaks }}</p></div>
+    <div class="content"><p>{{ note.content|safe }}</p></div>
     <div class="gray right small"><p>{{ note.created }}</p></div>
     <span class="clear-right"></span>
 </div>

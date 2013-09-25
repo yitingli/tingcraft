@@ -1,11 +1,18 @@
+from datetime import datetime
+
 from braces.views import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView, TemplateView
+from rest_framework.views import APIView
+from rest_framework import permissions, status
+from rest_framework.response import Response
 
 from .models import NoteBoard, Note
+from .serializers import NoteCreateSerializer
 from users.models import TingUser
+from core.permissions import IsOwnerOrReadOnly
 from core.pagination import NoteBoardPaginationMixin, NotePaginationMixin
 from core.mixins import OwnerContextMixin
 
@@ -41,3 +48,20 @@ class NoteListView(NotePaginationMixin, OwnerContextMixin, ListView):
         context = super(NoteListView, self).get_context_data(**kwargs)
         context['noteboard'] = self.board
         return context
+
+
+class NoteCreateAPIView(APIView):
+
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)
+
+    def post(self, request, format=None):
+        serializer = NoteCreateSerializer(data=request.DATA)
+        if serializer.is_valid():
+            self.check_object_permissions(request, serializer.object.board)
+            serializer.save()
+            return Response({
+                                'id': serializer.object.pk,
+                                'created': serializer.object.created.strftime('%b %d, %Y, %H:%M %P'),
+                            }, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

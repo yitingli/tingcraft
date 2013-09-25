@@ -12,6 +12,8 @@
 *.log
 *.pot
 *.pyc
+/tingcraft/assets/
+/tingcraft/media/
 
 # Packages #
 ############

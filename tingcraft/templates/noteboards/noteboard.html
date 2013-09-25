@@ -1,5 +1,6 @@
 {% extends 'user_page_base.html' %}
 {% load thumbnail %}
+{% load compressed %}
 {% load i18n %}
 
 {% block navigation %}
@@ -8,13 +9,25 @@
 
 {% block content %}
     <div class="text-center">
-        <h3>{{ noteboard.title }}</h3>
+        <h3 id="noteboard-title" data-id="{{ noteboard.id }}">{{ noteboard.title }}</h3>
         <hr>
     </div>
-    <div class="note-list-container">
+    {% if user.is_authenticated and user.username == owner_username %}
+        <div id="create-note-container" class="text-center">
+            <button id="show-create-note" class="btn btn-primary">{% trans 'Create' %}</button>
+            <script type="text/javascript" src="{{ STATIC_URL }}plugin/ckeditor/ckeditor.js"></script>
+            <textarea id="create-content" class="hidden"></textarea>
+            <button id="create-note" class="btn btn-primary hidden">{% trans 'Create Note' %}</button>
+        </div>
+    {% endif %}
+    <div id="note-list-container">
         {% for note in notes %}
             {% include 'noteboards/note.html' %}
         {% endfor %}
         <br class="clear-both"/>
     </div>
+{% endblock %}
+
+{% block js_in_body %}
+    {% compressed_js 'note' %}
 {% endblock %}
