@@ -1,0 +1,8 @@
+{% load thumbnail %}
+{% load i18n %}
+{% load users_tags %}
+{% load compressed %}
+
+{% for microblog in microblogs %}
+    {% include 'microblogs/microblog.html' %}
+{% endfor %}

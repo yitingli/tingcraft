@@ -45,3 +45,16 @@ class AlbumPaginationMixin(BasePaginationMixin):
 class MediaFramePaginationMixin(BasePaginationMixin):
 
     PAGE_SIZE = settings.PAGE_SIZE['MEDIAFRAME']
+
+
+class BasePaginationAPIMixin(object):
+
+    def get_max_id(self, request):
+        self.max_id = int(request.GET.get('max_id', '0'))
+        self.size = self.PAGE_SIZE
+        return self.max_id
+
+
+class MicroBlogPaginationAPIMixin(BasePaginationAPIMixin):
+
+    PAGE_SIZE = settings.PAGE_SIZE['MICROBLOG']

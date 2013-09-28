@@ -36,6 +36,7 @@ class MicroBlogCreateForm(forms.ModelForm):
                 image_item.save()
                 media_frame = MediaFrame(album=album, content_type='I', owner=self.owner)
                 media_frame.image_item = image_item
+                media_frame.description = self.cleaned_data['content']
                 media_frame.save()
                 microblog.media_frame = media_frame
             elif video_code:
@@ -43,6 +44,7 @@ class MicroBlogCreateForm(forms.ModelForm):
                 video_item.save()
                 media_frame = MediaFrame(album=album, content_type='V', owner=self.owner)
                 media_frame.video_item = video_item
+                media_frame.description = self.cleaned_data['content']
                 media_frame.save()
                 microblog.media_frame = media_frame
             microblog.owner = self.owner

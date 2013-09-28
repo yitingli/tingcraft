@@ -2,6 +2,7 @@
 {% load thumbnail %}
 {% load i18n %}
 {% load users_tags %}
+{% load compressed %}
 
 {% block content_main %}
     {% if user.is_authenticated and user.username == owner_username %}
@@ -9,9 +10,16 @@
             <a href="{% url 'microblog:create' owner_username %}">{% trans 'Create MicroBlog' %}</a>
         </div>
     {% endif %}
-    <div>
+    <div id="microblog-list-container">
         {% for microblog in microblogs %}
             {% include 'microblogs/microblog.html' %}
         {% endfor %}
     </div>
+    <div>
+        <button id="load-more-btn" type="button" class="btn btn-primary btn-block">{% trans 'Load More...' %}</button>
+    </div>
+{% endblock %}
+
+{% block js_in_body %}
+    {% compressed_js 'microblog' %}
 {% endblock %}

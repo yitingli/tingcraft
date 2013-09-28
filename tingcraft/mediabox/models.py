@@ -33,6 +33,31 @@ class MediaImage(MediaBase):
         image = self.get_image(geometry, crop)
         return image.url
 
+    def get_image_size(self, geometry, crop='no_crop'):
+        if 'x' in geometry:
+            components = geometry.split('x')
+            width = int(components[0])
+            height = int(components[1])
+            if self.width <= width and self.height <= height:
+                return (self.width, self.height)
+
+            if crop == 'no_crop':
+                ratio = float(height) / float(width)
+                image_ratio = float(self.height) / float(self.width)
+                if image_ratio <= ratio:
+                    return (width, int(width*image_ratio))
+                else:
+                    return (int(height/image_ratio), height)
+        else:
+            width = int(geometry)
+            if self.width <= width:
+                return (self.width, self.height)
+            else:
+                image_ratio = float(self.height) / float(self.width)
+                return (width, int(width*image_ratio))
+
+        return (width, height)
+
 
 class MediaVideo(MediaBase):
 

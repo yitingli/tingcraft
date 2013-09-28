@@ -1,16 +1,18 @@
 {% load thumbnail %}
 {% load i18n %}
 
-<div class="microblog-container">
+<div class="microblog-container" data-id="{{ microblog.id }}">
     <p class="microblog-content">{{ microblog.content }}</p>
-    <div class="microblog-image">
-        {% if microblog.media_frame and microblog.media_frame.content_type == 'I' %}
+    {% if microblog.media_frame and microblog.media_frame.content_type == 'I' %}
+        <div class="microblog-image-container">
+            <a href="{% url 'mediaframe:detail' owner_username microblog.media_frame.id %}">
             {% thumbnail microblog.media_frame.image_item.image MICROBLOG_IMAGE as im %}
-                <img src="{{ im.url }}" class="microblog-image" width="{{ im.width }}" height="{{ im.height }}"/>
+                <img src="{{ im.url }}" class="microblog-image" width="{{ im.width }}" height="{{ im.height }}" />
             {% endthumbnail %}
-            <p class="gray small right"> {% trans 'collected to' %} <a href="{% url 'album:mediaframes' owner_username microblog.media_frame.album.slug %}">{{ microblog.media_frame.album }}</a></p>
-        {% endif %}
-    </div>
+            </a>
+        </div>
+        <p class="gray small right"> {% trans 'collected to' %} <a href="{% url 'album:mediaframes' owner_username microblog.media_frame.album.slug %}">{{ microblog.media_frame.album }}</a></p>
+    {% endif %}
     <p class="gray small clear-right right">{{ microblog.created }}</p>
     <span class="clear-right"></span>
 </div>

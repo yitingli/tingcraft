@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<ul class="nav navbar-nav">
+<ul class="nav navbar-nav navbar-collapse">
     <li><a href="{% url 'user_home' owner_username %}">{% trans 'Home' %}</a></li>
     <li><a href="{% url 'microblog:list' owner_username %}">{% trans 'MicroBlog' %}</a></li>
     <li><a href="{% url 'blog:list' owner_username %}">{% trans 'Blog' %}</a></li>

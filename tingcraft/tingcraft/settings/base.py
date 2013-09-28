@@ -119,6 +119,13 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/note.js',
     },
+
+    'microblog': {
+        'source_filenames': (
+            'js/microblog.js',
+        ),
+        'output_filename': 'js/microblog.js',
+    },
 }
 
 PIPELINE_CSS = {
@@ -264,7 +271,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 PAGE_SIZE = {
-    'MICROBLOG': 50,
+    'MICROBLOG': 10,
     'MICROCOMMENT': 5,
     'NOTEBOARD': 10,
     'NOTE': 50,
@@ -278,7 +285,7 @@ IMAGE_SIZE = {
     'AVATAR_SMALL': '96',
     'AVATAR_SMALL_CROPPED': '96x96',
 
-    'MICROBLOG_IMAGE': '533',
+    'MICROBLOG_IMAGE': '533x400',
 
     'FRAME_LIST_CROPPED': '282x188',
     'FRAME_DETAIL': '860x690',
