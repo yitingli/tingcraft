@@ -8,23 +8,25 @@
 {% endblock %}
 
 {% block content %}
-    <div class="text-center">
-        <h3 id="noteboard-title" data-id="{{ noteboard.id }}">{{ noteboard.title }}</h3>
-        <hr>
-    </div>
-    {% if user.is_authenticated and user.username == owner_username %}
-        <div id="create-note-container" class="text-center">
-            <button id="show-create-note" class="btn btn-primary">{% trans 'Create' %}</button>
-            <script type="text/javascript" src="{{ STATIC_URL }}plugin/ckeditor/ckeditor.js"></script>
-            <textarea id="create-content" class="hidden"></textarea>
-            <button id="create-note" class="btn btn-primary hidden">{% trans 'Create Note' %}</button>
-        </div>
-    {% endif %}
     <div id="note-list-container">
-        {% for note in notes %}
-            {% include 'noteboards/note.html' %}
-        {% endfor %}
-        <br class="clear-both"/>
+        <div class="text-center">
+            <h3 id="noteboard-title" data-id="{{ noteboard.id }}">{{ noteboard.title }}</h3>
+            <hr>
+        </div>
+        {% if user.is_authenticated and user.username == owner_username %}
+            <div id="create-note-container" class="text-center">
+                <button id="show-create-note" class="btn btn-primary">{% trans 'Create' %}</button>
+                <script type="text/javascript" src="{{ STATIC_URL }}plugin/ckeditor/ckeditor.js"></script>
+                <textarea id="create-content" class="hidden"></textarea>
+                <button id="create-note" class="btn btn-primary hidden">{% trans 'Create Note' %}</button>
+            </div>
+        {% endif %}
+        <div id="note-list-subcontainer">
+            {% for note in notes %}
+                {% include 'noteboards/note.html' %}
+            {% endfor %}
+            <br class="clear-both"/>
+        </div>
     </div>
 {% endblock %}
 

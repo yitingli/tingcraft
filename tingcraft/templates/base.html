@@ -32,6 +32,10 @@
         {% endblock %}
 
         {% block body %}
+            <div class="navbar navbar-inverse navbar-custom-top">
+                {% block navigation %}
+                {% endblock %}
+            </div>
             <div id='body-container'>
                 {% block body_container %}
                     <div id="content">
@@ -39,6 +43,9 @@
                         {% endblock %}
                     </div>
                 {% endblock %}
+            </div>
+            <div id="bottom-bar" class="navbar navbar-inverse navbar-custom-bottom text-center">
+                <span id="bottom-text">{% trans 'Designed & Coded by Yiting Li, yl2919@columbia.edu' %}</span>
             </div>
             {% block js_in_body %}
             {% endblock %}

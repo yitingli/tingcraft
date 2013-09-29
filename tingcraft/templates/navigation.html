@@ -11,10 +11,10 @@
 </ul>
 <ul class="nav navbar-nav pull-right">
     {% if user.is_authenticated %}
-        <li><form action="{% url 'user_update' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Settings' %}"></form></li>
-        <li><form action="{% url 'logout' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Logout' %}"></form></li>
+        <li><form action="{% url 'user_update' %}"><input type="submit" class="btn btn-default navbar-btn right btn-custom" value="{% trans 'Settings' %}"></form></li>
+        <li><form action="{% url 'logout' %}"><input type="submit" class="btn btn-default navbar-btn right btn-custom" value="{% trans 'Logout' %}"></form></li>
     {% else %}
-        <li><form action="{% url 'login' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Login' %}"></form></li>
-        <li><form action="{% url 'register' %}"><input type="submit" class="btn btn-default navbar-btn right btn-margin" value="{% trans 'Register' %}"></form></li>
+        <li><form action="{% url 'login' %}"><input type="submit" class="btn btn-default navbar-btn right btn-custom" value="{% trans 'Login' %}"></form></li>
+        <li><form action="{% url 'register' %}"><input type="submit" class="btn btn-default navbar-btn right btn-custom" value="{% trans 'Register' %}"></form></li>
     {% endif %}
 </ul>

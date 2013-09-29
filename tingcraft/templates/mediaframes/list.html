@@ -4,20 +4,24 @@
 {% load users_tags %}
 
 {% block content %}
-    <div>
-        <h3>{{ album.name }}</h3>
-    </div>
-    <p>{{ album.description|safe }}</p>
-    {% if user.is_authenticated and user.username == owner_username %}
-        <div>
-            <a href="{% url 'mediaframe:create' owner_username %}">{% trans 'Create Photo/Video' %}</a>
+    <div id="frame-list-container">
+        <div class="frame-list-description">
+            <div>
+                <p class="font-20">{{ album.name }}</p>
+            </div>
+            <p>{{ album.description|safe }}</p>
+            {% if user.is_authenticated and user.username == owner_username %}
+                <div>
+                    <a href="{% url 'mediaframe:create' owner_username %}">{% trans 'Create Photo/Video' %}</a>
+                </div>
+            {% endif %}
         </div>
-    {% endif %}
-    <hr>
-    <div>
-        {% for mediaframe in mediaframes %}
-            {% include 'mediaframes/mediaframe.html' %}
-        {% endfor %}
+        <hr>
+        <div>
+            {% for mediaframe in mediaframes %}
+                {% include 'mediaframes/mediaframe.html' %}
+            {% endfor %}
+        </div>
+        <hr>
     </div>
-    <hr>
 {% endblock %}
