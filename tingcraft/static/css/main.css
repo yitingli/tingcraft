@@ -409,10 +409,18 @@ div .shadow-and-radius {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
+#mediaframe-detail-container {
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+}
+
+#mediaframe-detail-img-container {
+    background-color: #E8E8E8;
+    margin-bottom: 8px;
+}
+
 .mediaframe-detail-img {
     display: block;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 /* ---------- Microblog related style ----------- */

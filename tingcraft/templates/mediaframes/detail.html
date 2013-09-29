@@ -4,13 +4,17 @@
 {% load users_tags %}
 
 {% block content %}
-    {% thumbnail mediaframe.image_item.image FRAME_DETAIL upscale=False as im %}
-        <img src="{{ im.url }}" class="mediaframe-detail-img middle" width="{{ im.width }}" height="{{ im.height }}"/>
-    {% endthumbnail %}
-    {% if mediaframe.description %}
-        <p class="gray right"> {{ mediaframe.description }} </p>
-    {% endif %}
-    <span class="gray small clear-right right"> {{ mediaframe.created }}</span>
-    <span class="clear-right"></span>
-    <a href="{{ mediaframe.image_item.image.url }}">{% trans 'Download Original Image' %}</a>
+    <div id="mediaframe-detail-container" class="shadow-and-radius">
+        <div id="mediaframe-detail-img-container">
+            {% thumbnail mediaframe.image_item.image FRAME_DETAIL upscale=False as im %}
+                <img src="{{ im.url }}" class="mediaframe-detail-img middle" width="{{ im.width }}" height="{{ im.height }}"/>
+            {% endthumbnail %}
+        </div>
+        {% if mediaframe.description %}
+            <p class="gray right"> {{ mediaframe.description }} </p>
+        {% endif %}
+        <span class="gray small clear-right right"> {{ mediaframe.created }}</span>
+        <span class="clear-right"></span>
+        <a href="{{ mediaframe.image_item.image.url }}">{% trans 'Download Original Image' %}</a>
+    </div>
 {% endblock %}
