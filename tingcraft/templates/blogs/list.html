@@ -9,7 +9,7 @@
             <a href="{% url 'blog:create' owner_username %}">{% trans 'Create Blog' %}</a>
         </div>
     {% endif %}
-    <div id="blog-list-container">
+    <div id="blog-list-container" class="shadow-and-radius">
         {% for blog in blogs %}
             {% include 'blogs/blog.html' %}
             <hr class="blog-hr">

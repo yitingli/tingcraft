@@ -1,7 +1,7 @@
 {% load thumbnail %}
 {% load i18n %}
 
-<div class="microblog-container" data-id="{{ microblog.id }}">
+<div class="microblog-container shadow-and-radius" data-id="{{ microblog.id }}">
     <p class="microblog-content">{{ microblog.content }}</p>
     {% if microblog.media_frame and microblog.media_frame.content_type == 'I' %}
         <div class="microblog-image-container">

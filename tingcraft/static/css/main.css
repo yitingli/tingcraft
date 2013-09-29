@@ -6,6 +6,16 @@ body {
     background-size: cover !important;
 }
 
+div .shadow-and-radius {
+    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
+    -moz-box-shadow: 0px 2px 6px #4a4a4a;
+    box-shadow: 0px 2px 6px #4a4a4a;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+}
+
 #body-container {
 
     max-width: 980px;
@@ -258,13 +268,6 @@ body {
 
     padding: 30px;
 
-    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
-    -moz-box-shadow: 0px 2px 6px #4a4a4a;
-    box-shadow: 0px 2px 6px #4a4a4a;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    border-radius: 6px;
 }
 
 
@@ -293,6 +296,7 @@ body {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -khtml-border-radius: 6px;
+     border-radius:6px;
 }
 
 .album-container {
@@ -352,13 +356,6 @@ body {
 
     background-color: rgb(255,255,255);
     background-color: rgba(255,255,255,.6);
-
-    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
-    -moz-box-shadow: 0px 2px 6px #4a4a4a;
-    box-shadow: 0px 2px 6px #4a4a4a;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -khtml-border-radius: 6px;
 }
 
 .frame-container {
@@ -429,13 +426,6 @@ body {
 
     margin-bottom:20px;
 
-    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
-    -moz-box-shadow: 0px 2px 6px #4a4a4a;
-    box-shadow: 0px 2px 6px #4a4a4a;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    border-radius: 6px;
 }
 
 .microblog-content {
@@ -466,14 +456,6 @@ body {
     padding: 30px;
 
     min-height: 500px;
-
-    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
-    -moz-box-shadow: 0px 2px 6px #4a4a4a;
-    box-shadow: 0px 2px 6px #4a4a4a;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    border-radius: 6px;
 }
 
 .blog-detail-container {
@@ -502,12 +484,6 @@ body {
 
     padding: 30px;
 
-    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
-    -moz-box-shadow: 0px 2px 6px #4a4a4a;
-    box-shadow: 0px 2px 6px #4a4a4a;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -khtml-border-radius: 6px;
 }
 
 .exp-devision-name {
@@ -538,13 +514,6 @@ body {
     background-color: rgb(255,255,255);
     background-color: rgba(255,255,255,.9);
 
-    -webkit-box-shadow: 0px 2px 6px #4a4a4a;
-    -moz-box-shadow: 0px 2px 6px #4a4a4a;
-    box-shadow: 0px 2px 6px #4a4a4a;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    border-radius: 6px;
 }
 
 #note-list-container {
