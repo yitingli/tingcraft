@@ -69,3 +69,4 @@ class MediaFile(MediaBase):
     title = models.CharField(max_length=50, default='Untitled', blank=True)
     doc = models.FileField(upload_to=upload_file_filename)
     rank = models.FloatField(default=100.0, blank=True)
+    is_public = models.BooleanField(default=False)

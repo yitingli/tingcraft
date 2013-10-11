@@ -25,7 +25,7 @@ class ExpListView(OwnerContextMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ExpListView, self).get_context_data(**kwargs)
-        context['documents'] = MediaFile.objects.filter(owner=self.owner).order_by('-rank')
+        context['documents'] = MediaFile.objects.filter(owner=self.owner, is_public=True).order_by('-rank')
         return context
 
 
