@@ -454,16 +454,20 @@ div .shadow-and-radius {
 .blog-title {
     color: #4a4a4a;
     font-style: oblique;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: bold;
     text-decoration: none;
 }
 
+.blog-detail-title {
+    color: #4a4a4a;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 #blog-list-container {
     background-color: rgba(255,255,255,.9);
-
-    padding: 30px;
-
+    padding: 50px;
     min-height: 500px;
 }
 
@@ -473,6 +477,9 @@ div .shadow-and-radius {
     min-height: 500px;
 
     padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+
     -webkit-box-shadow: 0px 0px 1px #4a4a4a;
     -moz-box-shadow: 0px 0px 1px #4a4a4a;
     box-shadow: 0px 0px 1px #4a4a4a;

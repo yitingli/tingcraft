@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load users_tags %}
 
-{% block content_main %}
+{% block content %}
     {% if user.is_authenticated and user.username == owner_username %}
         <div>
             <a href="{% url 'blog:create' owner_username %}">{% trans 'Create Blog' %}</a>
