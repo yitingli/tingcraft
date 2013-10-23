@@ -2,6 +2,7 @@
 {% load thumbnail %}
 {% load i18n %}
 {% load users_tags %}
+{% load staticfiles %}
 
 {% block content %}
     {% if user.is_authenticated and user.username == owner_username %}
@@ -23,4 +24,10 @@
             {% endfor %}
         {% endif %}
     </div>
+{% endblock %}
+
+{% block js_in_body %}
+    <script type="text/javascript" src="{% static "plugin/google-code-prettify/prettify.js" %}"></script>
+    <link href="{% static "plugin/google-code-prettify/prettify.css" %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript">prettyPrint();</script>
 {% endblock %}
