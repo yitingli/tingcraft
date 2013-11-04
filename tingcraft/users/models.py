@@ -145,7 +145,7 @@ class TingUser(PermissionsMixin, AbstractBaseUser):
             criteria = criteria & Q(is_public=False)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
-        return Blog.objects.filter(criteria)[:size]
+        return Blog.objects.filter(criteria).order_by('-created')[:size]
 
     def get_noteboards(self, max_id, size=settings.PAGE_SIZE['NOTEBOARD'], public=True):
         criteria = Q(owner=self)
