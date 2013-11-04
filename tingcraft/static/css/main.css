@@ -259,6 +259,8 @@ div .shadow-and-radius {
 
 /* ---------- Homepage related ------------ */
 #homepage-container {
+
+    min-height: 390px;
     width: 100%;
 
     background-color: rgb(255,255,255);

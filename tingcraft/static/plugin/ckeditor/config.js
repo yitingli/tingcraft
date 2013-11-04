@@ -8,7 +8,21 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
     config.toolbarGroups = [
-        { name: 'document', groups: [ 'mode'] }, // shows the source button
+        { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ] },
+        { name: 'forms' },
+        '/',
+        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+        { name: 'insert' },
+        '/',
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+        { name: 'links' },
+        '/',
+        { name: 'styles' },
+        { name: 'colors' },
+        { name: 'tools' },
+        { name: 'others' },
         { name: 'pbckcode' } ,                   // shows the pbckcode button
     ];
     config.extraPlugins = 'pbckcode';
