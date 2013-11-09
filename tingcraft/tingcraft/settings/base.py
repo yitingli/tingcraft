@@ -278,6 +278,8 @@ PAGE_SIZE = {
     'BLOG': 10,
     'ALBUM': 15,
     'MEDIAFRAME': 30,
+
+    'POPULAR_SIDEBAR': 6,
 }
 
 IMAGE_SIZE = {
@@ -294,8 +296,9 @@ IMAGE_SIZE = {
     'ALBUM_COVER_WIDTH': '212',
     'ALBUM_COVER_HEIGHT': '150',
     'FRAME_THUMB_CROPPED': '50x50',
-    'FRAME_THUMB_WIDTH': '50'
+    'FRAME_THUMB_WIDTH': '50',
 
+    'POPULAR_SIDEBAR': '130',
 }
 
 LOGIN_URL = '/login/'

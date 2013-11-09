@@ -25,7 +25,11 @@
         <p>{% trans 'Popular' %}</p>
         <hr>
         {% for frame in popular_frames %}
-
+            {% thumbnail frame.image_item.image POPULAR_SIDEBAR as im %}
+            <a href="{% url 'mediaframe:detail' owner_username frame.pk %}">
+                <img class="popular-sidebar" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"/>
+            </a>
+            {% endthumbnail %}
         {% endfor %}
     </div>
     <br class="clear-both"/>

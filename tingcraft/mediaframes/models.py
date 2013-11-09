@@ -2,6 +2,8 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from model_utils.models import TimeStampedModel
 
+from core.utils import gen_float_decimal
+
 
 class MediaFrame(TimeStampedModel):
     """
@@ -21,6 +23,8 @@ class MediaFrame(TimeStampedModel):
     content_type = models.CharField(max_length=1)
     image_item = models.ForeignKey('mediabox.MediaImage', null=True, blank=True)
     video_item = models.ForeignKey('mediabox.MediaVideo', null=True, blank=True)
+
+    view_count = models.FloatField(default=gen_float_decimal, blank=True)
 
     def __unicode__(self):
         return self.description or self.image_item.image.url

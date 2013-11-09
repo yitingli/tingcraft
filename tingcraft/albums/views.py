@@ -1,4 +1,5 @@
 from braces.views import LoginRequiredMixin
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
@@ -27,6 +28,8 @@ class AlbumListView(AlbumPaginationMixin, OwnerContextMixin, ListView):
         context = super(AlbumListView, self).get_context_data(**kwargs)
         context['owner'] = self.owner
         context['private_albums'] = self.owner.get_albums(max_id=self.max_id, public=False)
+        context['popular_frames'] = MediaFrame.objects.filter(owner=self.owner, album__is_public=True)\
+                                    .order_by('-view_count')[:settings.PAGE_SIZE['POPULAR_SIDEBAR']]
         return context
 
 
