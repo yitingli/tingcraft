@@ -36,6 +36,8 @@ AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
 AWS_STATIC_STORAGE_BUCKET_NAME = 'assets-ca.liyiting.net'
 AWS_STATIC_PATH = 'assets'
 
+AWS_PRELOAD_METADATA = True
+
 STATIC_URL = 'http://%s/%s/' % (AWS_STATIC_S3_CUSTOM_DOMAIN, AWS_STATIC_PATH)
 DEFAULT_AVATAR_LOCATION = STATIC_URL + 'img/avatar/'
 
