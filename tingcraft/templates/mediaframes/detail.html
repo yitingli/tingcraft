@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load users_tags %}
 {% load compressed %}
+{% load staticfiles %}
 
 {% block content %}
     <div id="mediaframe-detail-container" data-id="{{ mediaframe.id }}" class="shadow-and-radius">
@@ -13,10 +14,22 @@
                 {% endthumbnail %}
             {% else %}
                 {% if mediaframe.video_item.video %}
+                    <script type="text/javascript" src="{{ STATIC_URL }}plugin/jwplayer/jwplayer.js"></script>
+                    <div id="jw-player" class="middle">Loading the player...</div>
+                    <script type="text/javascript">
+                        jwplayer("jw-player").setup({
+                            file: "{{ mediaframe.video_item.video.url }}",
+                            image: "{% static 'img/video-default.jpg' %}",
+                            width: 822,
+                            height: 480
+                        });
+                    </script>
+                    {% comment %}
                     <video width="720" height="480" class="middle" controls="controls">
                         <source src='{{ mediaframe.video_item.video.url }}' type="{{ mediaframe.video_item.video.content_type }}" />
                         {% trans 'Your browser does not support the video tag.' %}'
                     </video>
+                    {% endcomment %}
                 {% else %}
                     {{ mediaframe.video_item.video_code|safe }}
                 {% endif %}
