@@ -24,6 +24,14 @@ AWS_S3_CUSTOM_DOMAIN = 's3-ca.liyiting.net'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 's3-ca.liyiting.net'
 
+AWS_HEADERS = {
+    'Cache-Control': 'max-age=31536000',
+}
+
+AWS_STATIC_HEADERS = {
+    'Cache-Control': 'max-age=2592000',
+}
+
 AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
 AWS_STATIC_STORAGE_BUCKET_NAME = 'assets-ca.liyiting.net'
 AWS_STATIC_PATH = 'assets'
