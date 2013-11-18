@@ -44,6 +44,15 @@ def upload_image_filename(instance, filename):
     return '%s/%s/%s/%s/%s%s' % (settings.IMAGE_PATH_PREFIX, key[:2], key[2:4], key[4:6], key, extension)
 
 
+def upload_video_filename(instance, filename):
+    """
+    Used to upload video files
+    """
+    _, extension = path.splitext(filename)
+    key = get_key(instance, filename)
+    return '%s/%s/%s/%s/%s%s' % (settings.VIDEO_PATH_PREFIX, key[:2], key[2:4], key[4:6], key, extension)
+
+
 def upload_file_filename(instance, filename):
     """
     Used to upload general files

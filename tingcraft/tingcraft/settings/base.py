@@ -49,6 +49,7 @@ THUMBNAIL_BACKEND = 'mediabox.backends.CustomThumbnailBackend'
 # THUMBNAIL_UPSCALE = False
 
 FILE_PATH_PREFIX = 'files/origin'
+VIDEO_PATH_PREFIX = 'videos/origin'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -125,6 +126,13 @@ PIPELINE_JS = {
             'js/microblog.js',
         ),
         'output_filename': 'js/microblog.js',
+    },
+
+    'mediaframe': {
+        'source_filenames': (
+            'js/mediaframe.js',
+        ),
+        'output_filename': 'js/mediaframe.js',
     },
 }
 
@@ -330,3 +338,5 @@ REST_FRAMEWORK = {
 
     'PAGINATE_BY': 10
 }
+
+UPLOAD_VIDEO_TYPES = ['video/mp4']

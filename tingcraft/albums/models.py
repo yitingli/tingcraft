@@ -31,16 +31,16 @@ class Album(TimeStampedModel):
         super(Album, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('album:list', kwargs={'username': self.owner.username})
+        return reverse('album:mediaframes', kwargs={'username': self.owner.username, 'slug': self.slug})
 
     def get_media_frames(self, max_id, size=settings.PAGE_SIZE['MEDIAFRAME']):
         criteria = Q(album=self)
         if max_id:
             criteria = criteria & Q(pk__lt=max_id)
-        return MediaFrame.objects.filter(criteria).order_by('-created')[:size]
+        return MediaFrame.objects.filter(criteria).order_by('-rating', '-created')[:size]
 
     def get_album_thumb_frames(self):
-        mediaframes = MediaFrame.objects.filter(album=self).order_by('-created')[:4]
+        mediaframes = MediaFrame.objects.filter(album=self).order_by('-rating', '-created')[:4]
         frame_list = list(mediaframes)
         while len(frame_list) < 4:
             frame_list.append(None)

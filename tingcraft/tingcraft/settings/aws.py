@@ -36,6 +36,7 @@ STATICFILES_STORAGE = 'core.s3storage.S3PipelineStorage'
 MEDIA_URL = 'http://%s/' % (AWS_S3_CUSTOM_DOMAIN)
 IMAGE_PATH_PREFIX = 'media/images/origin'
 FILE_PATH_PREFIX = 'media/files/origin'
+VIDEO_PATH_PREFIX = 'media/videos/origin'
 
 CACHES = {
     'default': {

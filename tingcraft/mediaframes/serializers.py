@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
 
 from .models import MediaFrame
@@ -26,3 +27,14 @@ class MediaFrameSerializer(serializers.ModelSerializer):
     class Meta:
         model = MediaFrame
         fields = ('id', 'album', 'owner', 'description', 'media',)
+
+
+class MediaFrameRateSerializer(serializers.Serializer):
+
+    rating = serializers.IntegerField()
+
+    def validate_rating(self, attrs, source):
+        rating = attrs[source]
+        if rating < 1 or rating > 5:
+            raise serializers.ValidationError(_("Rating range error"))
+        return attrs

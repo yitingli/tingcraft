@@ -15,7 +15,7 @@ class MediaFrame(TimeStampedModel):
 
     album = models.ForeignKey('albums.Album')
     owner = models.ForeignKey('users.TingUser')
-    description = models.CharField(max_length=500, default='', null=True, blank=True)
+    description = models.CharField(max_length=500, default='', blank=True)
     """
         Simple solution is more straightforward than GenericForeignKey
         since we have only two types
@@ -25,9 +25,11 @@ class MediaFrame(TimeStampedModel):
     video_item = models.ForeignKey('mediabox.MediaVideo', null=True, blank=True)
 
     view_count = models.FloatField(default=gen_float_decimal, blank=True)
+    rating = models.FloatField(default=5.0, blank=True)
+    rate_count = models.IntegerField(default=0, blank=True)
 
     def __unicode__(self):
-        return self.description or self.image_item.image.url
+        return self.description
 
     def get_absolute_url(self):
         return reverse('album:list', kwargs={'username': self.owner.username})

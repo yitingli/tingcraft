@@ -442,6 +442,16 @@ div .shadow-and-radius {
     margin-bottom: 8px;
 }
 
+#mediaframe-detail-img-container video {
+    display: block;
+}
+
+#mediaframe-detail-img-container iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .mediaframe-detail-img {
     display: block;
 }

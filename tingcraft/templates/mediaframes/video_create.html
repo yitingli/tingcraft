@@ -7,8 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post" action="{% url 'mediaframe:create' owner_username %}" enctype="multipart/form-data">
-        {% csrf_token %}
+    <form method="post" action="{% url 'mediaframe:video_create' owner_username %}" enctype="multipart/form-data">{% csrf_token %}
         {% if form.errors %}
             <p>{{ form.errors }}</p>
         {% endif %}
@@ -22,16 +21,14 @@
                 <td>{{ form.album }}</td>
             </tr>
             <tr>
-                <td>{{ form.image.label_tag }}</td>
-                <td>{{ form.image }}</td>
+                <td>{{ form.video.label_tag }}</td>
+                <td>{{ form.video }}</td>
             </tr>
-            {% comment %}
             <tr>
                 <td>{{ form.video_code.label_tag }}</td>
                 <td>{{ form.video_code }}</td>
             </tr>
-            {% endcomment %}
         </table>
-        <input type="submit" value="Create MediaFrame" />
+        <input type="submit" value="Submit" />
     </form>
 {% endblock %}
