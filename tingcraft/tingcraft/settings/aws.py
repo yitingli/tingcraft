@@ -20,7 +20,8 @@ DATABASES = {
 AWS_ACCESS_KEY_ID = 'AKIAIS4JPQBNHQAHBWIA'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_S3_SECURE_URLS = False
-AWS_S3_CUSTOM_DOMAIN = 's3-ca.liyiting.net'
+#AWS_S3_CUSTOM_DOMAIN = 's3-ca.liyiting.net'
+AWS_S3_CUSTOM_DOMAIN = 'cloudfront-web.liyiting.net'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 's3-ca.liyiting.net'
 
@@ -32,7 +33,8 @@ AWS_STATIC_HEADERS = {
     'Cache-Control': 'max-age=2592000',
 }
 
-AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
+#AWS_STATIC_S3_CUSTOM_DOMAIN = 'assets-ca.liyiting.net'
+AWS_STATIC_S3_CUSTOM_DOMAIN = 'cloudfront-assets.liyiting.net'
 AWS_STATIC_STORAGE_BUCKET_NAME = 'assets-ca.liyiting.net'
 AWS_STATIC_PATH = 'assets'
 
