@@ -309,8 +309,8 @@ IMAGE_SIZE = {
     'POPULAR_SIDEBAR': '130',
 }
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/register/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/register/'
 LOGIN_ERROR_URL = '/login-error/'
 
 REST_FRAMEWORK = {

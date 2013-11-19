@@ -46,7 +46,7 @@ class VideoFrameCreateView(LoginRequiredMixin, OwnerContextMixin, OwnerRequiredM
         return self.object.album.get_absolute_url()
 
 
-class MediaFrameDeleteView(OwnerContextMixin, DeleteView):
+class MediaFrameDeleteView(LoginRequiredMixin, OwnerContextMixin, OwnerRequiredMixin, DeleteView):
 
     model = MediaFrame
 

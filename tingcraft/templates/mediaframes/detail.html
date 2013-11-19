@@ -49,7 +49,7 @@
             <span id="media-rate-info"></span>
         </p>
         <span class="clear-right"></span>
-        {% if mediaframe.owner.username == owner_username %}
+        {% if user.username == owner_username %}
             <p><form action="{% url 'mediaframe:delete' owner_username mediaframe.pk %}"><input type="submit" class="btn btn-small right btn-custom" value="{% trans 'Delete' %}"></form></p>
         {% endif %}
         {% if mediaframe.content_type == 'I' %}
