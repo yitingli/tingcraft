@@ -274,6 +274,28 @@ div .shadow-and-radius {
 }
 
 
+/* ---------- Account related ---------- */
+.account-container {
+    width: 190px;
+    margin: auto;
+    margin-top: 200px;
+}
+
+.sign-up-form input {
+    width: 100%;
+    padding: 11px 10px 8px 10px;
+    display: block;
+    margin: 0;
+    border: 0;
+    font: bold 14px;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
 /* ---------- Album related style ----------- */
 .album-list-container {
     width: 82%;
